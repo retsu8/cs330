@@ -208,7 +208,7 @@ void SceneManager::RenderScene()
 		positionXYZ);
 
 	// set the color values into the shader
-	SetShaderColor(1, 1, 1, 1);
+	SetShaderColor(228, 182, 218, 1);
 
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
