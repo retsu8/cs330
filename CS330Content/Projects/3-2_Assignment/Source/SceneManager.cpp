@@ -178,7 +178,6 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 	// set the color values into the shader
-	rgba(
 	SetShaderColor(228, 182, 218, 1);
 
 	// draw the mesh with transformation values
