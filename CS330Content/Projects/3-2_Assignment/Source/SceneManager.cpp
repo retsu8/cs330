@@ -212,21 +212,19 @@ void SceneManager::RenderScene()
 
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
-
 	/****************************************************************/
-
-	/*** This is going to build a cylender  ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
+	// Building cylender to draw                                    //
+	/****************************************************************/
+		// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(0.9f, 2.8f, 0.9f);
 
 	// set the XYZ rotation for the mesh
-	XrotationDegrees = 1.0f;
+	XrotationDegrees = 90.0f;
 	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
+	ZrotationDegrees = -15.0f;
 
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 9.0f, -10.0f);
+	positionXYZ = glm::vec3(0.0f, 0.9f, 0.4f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
@@ -236,39 +234,7 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	// set the color values into the shader
-	SetShaderColor(1, 1, 1, 1);
+	SetShaderColor(1, 0, 0, 1);
 
-	// draw the mesh with transformation values
-	m_basicMeshes->DrawPlaneMesh();
-
-	// struct {
-	//    GLfloat x,z, y_start, y_end;
-	// 	}each_pole; // struct
-	// 	std::vector<each_pole> each_pole_vector; // vector of structs
-
-	// 	//Cylinder with y axis up
-	// 	GLfloat cylinder_height = 1.0f,
-	// 	        cylinder_radius = 0.5f,
-	// 	        nr_of_points_cylinder = 360.f;
-
-	// 	for (int i = 0; i < nr_of_points_cylinder; ++i)
-	// 	{
-	// 	    GLfloat u = i / (GLfloat)nr_of_points_cylinder;
-
-	// 	    //Where the cylinder is in the x and z positions (3D space) 
-	// 	    each_pole.x = center.x 
-	// 	    + cylinder_radius*cos(2*M_PI*u); 
-	// 	    each_pole.z = center.z 
-	// 	    + cylinder_radius*sin(2*M_PI*u); 
-
-	// 	    each_pole.y_start = 0.0f;
-	// 	    each_pole.y_end = cylinder_height;
-
-	// 	    each_pole_vector.push_back(each_pole);
-
-	// 	}
-
-	// 	return each_pole_vector;
-	/****************************************************************/
+	m_basicMeshes->DrawCylinderMesh();
 }
