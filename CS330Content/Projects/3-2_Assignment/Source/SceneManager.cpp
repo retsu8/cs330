@@ -308,7 +308,7 @@ void SceneManager::RenderScene()
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(1.7f, 0f, 5.2f);
+	positionXYZ = glm::vec3(1.7f, 0.0f, 5.2f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
