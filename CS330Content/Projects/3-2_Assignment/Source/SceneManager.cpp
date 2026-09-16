@@ -250,7 +250,7 @@ void SceneManager::RenderScene()
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
-	YrotationDegrees = 95.0f;
+	YrotationDegrees = 97.0f;
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
