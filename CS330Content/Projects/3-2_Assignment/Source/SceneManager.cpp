@@ -246,7 +246,7 @@ void SceneManager::RenderScene()
 	/*** Drawwing the box on the right, the tall one  ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(5.0f, 9.0f, 1.3f);
+	scaleXYZ = glm::vec3(8.0f, 1.0f, 12.0f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
