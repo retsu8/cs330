@@ -564,4 +564,31 @@ void SceneManager::RenderScene()
 	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
 
 	m_basicMeshes->DrawTorusMesh();
+
+				/****************************************************************/
+	/*** Set needed transformations before drawing the basic mesh.  ***/
+	/*** Creating the stick for the press ***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(1.0f, 0.5f, 0.5f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(9.0f, 4.7f, 0.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
+
+	m_basicMeshes->DrawCylinderMesh();
 }
