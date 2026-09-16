@@ -227,7 +227,7 @@ void SceneManager::RenderScene()
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 4.0f, 0.4f);
+	positionXYZ = glm::vec3(0.0f, 3.5f, 0.4f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
@@ -273,7 +273,7 @@ void SceneManager::RenderScene()
 	/*** Drawwing the box in the middle that is square  ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(4.0f, 6.0f, 4.0f);
+	scaleXYZ = glm::vec3(4.5f, 6.0f, 4.5f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
