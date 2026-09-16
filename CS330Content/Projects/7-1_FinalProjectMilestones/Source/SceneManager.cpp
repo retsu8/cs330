@@ -461,7 +461,7 @@ void SceneManager::RenderScene()
 	/*** Creating the base for the coffee maker out of a cylinder   ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.9f, 2.8f, 0.9f);
+	scaleXYZ = glm::vec3(0.9f, 5.1f, 0.9f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
