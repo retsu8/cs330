@@ -217,7 +217,7 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawPlaneMesh();
 
 	/****************************************************************/
-	// Building cylender to draw                                    //
+	// Building cylender to draw then setting it on the box         //
 	/****************************************************************/
 		// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(0.9f, 2.5f, 0.7f);
@@ -228,7 +228,7 @@ void SceneManager::RenderScene()
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 3.5f, 0.4f);
+	positionXYZ = glm::vec3(0.0f, 3.5f, -0.01f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
