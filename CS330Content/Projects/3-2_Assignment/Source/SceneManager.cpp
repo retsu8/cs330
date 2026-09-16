@@ -246,7 +246,7 @@ void SceneManager::RenderScene()
 	/*** Drawwing the box on the right, the tall one  ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(1.0f, 12.0f, 8.0f);
+	scaleXYZ = glm::vec3(2.0f, 12.0f, 5.0f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
@@ -264,7 +264,7 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(0, 0, 1, 1);
+	SetShaderColor(1, 1, 1, 1);
 
 	m_basicMeshes->DrawBoxMesh();
 }
