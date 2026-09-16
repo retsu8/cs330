@@ -515,7 +515,7 @@ void SceneManager::RenderScene()
 	/*** Creating the handle going down from the cylinder  ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.3f, 1.2f, 0.3f);
+	scaleXYZ = glm::vec3(0.35f, 1.4f, 0.35f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
