@@ -140,6 +140,7 @@ void SceneManager::PrepareScene()
 	m_basicMeshes->LoadPlaneMesh();
 	m_basicMeshes->LoadCylinderMesh();
 	m_basicMeshes->LoadBoxMesh();
+	m_basicMeshes->LoadSphereMesh();
 }
 
 /***********************************************************
@@ -294,4 +295,30 @@ void SceneManager::RenderScene()
 	SetShaderColor(1, 1, 1, 1);
 
 	m_basicMeshes->DrawBoxMesh();
+
+	/****************************************************************/
+	/*** This is the sphere on the image***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(1.0f, 1.0f, 10.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(3.2f, 5.6f, 2.5f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(1, 1, 0, 1);
+
+	m_basicMeshes->DrawSphereMesh();
 }
