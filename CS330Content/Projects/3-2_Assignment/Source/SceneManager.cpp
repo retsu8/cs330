@@ -273,11 +273,11 @@ void SceneManager::RenderScene()
 	/*** Drawwing the box in the middle that is square  ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(4.0f, 4.0f, 4.0f);
+	scaleXYZ = glm::vec3(8.0f, 8.0f, 8.0f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
-	YrotationDegrees = 90.0f;
+	YrotationDegrees = 45.0f;
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
