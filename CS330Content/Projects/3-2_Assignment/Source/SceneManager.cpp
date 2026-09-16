@@ -247,7 +247,7 @@ void SceneManager::RenderScene()
 	/*** Drawwing the box on the right, the tall one the cereal box ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(2.0f, 14.0f, 5.0f);
+	scaleXYZ = glm::vec3(2.0f, 16.0f, 5.0f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
@@ -256,6 +256,33 @@ void SceneManager::RenderScene()
 
 	// set the XYZ position for the mesh
 	positionXYZ = glm::vec3(5.5f, 0.0f, 1.3f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(1, 1, 1, 1);
+
+	m_basicMeshes->DrawBoxMesh();
+
+		/****************************************************************/
+
+	/*** Drawwing the box on the left, the small one on its side ***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(4.0f, 1.0f, 1.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(-5.0f, 0.0f, 4.5f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
