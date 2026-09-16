@@ -101,49 +101,7 @@ public:
 
 	// The following methods are for the students to 
 	// customize for their own 3D scene
-void SceneManager::PrepareScene()
-{
-	// Reloading these from previus projects to render the needed items
-	m_basicMeshes->LoadPlaneMesh();
-	m_basicMeshes->LoadCylinderMesh();
-	m_basicMeshes->LoadBoxMesh();
-}
-void SceneManager::RenderScene()
-{
-	// declare the variables for the transformations
-	glm::vec3 scaleXYZ;
-	float XrotationDegrees = 0.0f;
-	float YrotationDegrees = 0.0f;
-	float ZrotationDegrees = 0.0f;
-	glm::vec3 positionXYZ;
-
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-	// set the color values into the shader
-	SetShaderColor(0.882f, 0.647f, 0.804f, 1.0f);
-
-	// draw the mesh with transformation values
-	m_basicMeshes->DrawPlaneMesh();
-}
+	void PrepareScene();
+	void RenderScene();
 
 };
