@@ -219,7 +219,7 @@ void SceneManager::RenderScene()
 	// Building cylender to draw                                    //
 	/****************************************************************/
 		// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.9f, 0.6f, 0.9f);
+	scaleXYZ = glm::vec3(0.9f, 2.5f, 0.9f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
@@ -227,7 +227,7 @@ void SceneManager::RenderScene()
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 6.0f, 0.4f);
+	positionXYZ = glm::vec3(0.0f, 4.0f, 0.4f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
