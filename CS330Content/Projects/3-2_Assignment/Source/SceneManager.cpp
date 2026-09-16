@@ -222,7 +222,7 @@ void SceneManager::RenderScene()
 	scaleXYZ = glm::vec3(0.9f, 2.8f, 0.9f);
 
 	// set the XYZ rotation for the mesh
-	XrotationDegrees = 90.0f;
+	XrotationDegrees = 0.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 0.0f;
 
@@ -250,7 +250,7 @@ void SceneManager::RenderScene()
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
+	YrotationDegrees = 95.0f;
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
