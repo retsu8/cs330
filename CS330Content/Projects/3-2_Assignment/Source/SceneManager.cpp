@@ -139,6 +139,7 @@ void SceneManager::PrepareScene()
 
 	m_basicMeshes->LoadPlaneMesh();
 	m_basicMeshes->LoadCylinderMesh();
+	m_basicMeshes->LoadBoxMesh()
 }
 
 /***********************************************************
@@ -239,4 +240,31 @@ void SceneManager::RenderScene()
 	SetShaderColor(0.745f, 0.529f, 0.451f, 1.0f);
 
 	m_basicMeshes->DrawCylinderMesh();
+
+	/****************************************************************/
+
+	/*** Drawwing the box on the right, the tall one  ***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(1.0f, 9.0f, 1.3f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(0.2f, 2.27f, 2.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0, 0, 1, 1);
+
+	m_basicMeshes->DrawBoxMesh();
 }
