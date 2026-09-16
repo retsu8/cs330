@@ -404,10 +404,8 @@ void SceneManager::RenderScene()
 	float ZrotationDegrees = 0.0f;
 	glm::vec3 positionXYZ;
 
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
+	/*** This is the countertop of the image  ***/
+	/********************************************/
 	// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
 
@@ -431,6 +429,33 @@ void SceneManager::RenderScene()
 
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
+
+	/*** The backsplash is set here  ***/
+	/***********************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 90.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(1, 1, 1, 1);
+
+	// draw the mesh with transformation values
+	m_basicMeshes->DrawPlaneMesh();
+
 	/****************************************************************/
 	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Creating the base for the coffee maker out of a cylinder   ***/
