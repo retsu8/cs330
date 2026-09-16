@@ -235,7 +235,7 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(0.228, 0.182, 0.218, 1.00);
+	SetShaderColor(0.202, 0.147, 0.140, 1.00);
 
 	m_basicMeshes->DrawCylinderMesh();
 }
