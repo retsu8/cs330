@@ -511,4 +511,33 @@ void SceneManager::RenderScene()
 	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
 
 	m_basicMeshes->DrawCylinderMesh();
+
+			/****************************************************************/
+	/*** Set needed transformations before drawing the basic mesh.  ***/
+	/*** Creating the handle going down from the cylinder  ***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(0.3f, 1.2f, 0.3f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	GL_SHININESS = 3
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(8.0f, 3.8f, 0.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
+
+	m_basicMeshes->DrawCylinderMesh();
 }
