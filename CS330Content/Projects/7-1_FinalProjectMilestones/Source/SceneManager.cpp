@@ -495,6 +495,8 @@ void SceneManager::RenderScene()
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 90.0f;
 
+	GL_SHININESS = 3
+
 	// set the XYZ position for the mesh
 	positionXYZ = glm::vec3(8.0f, 3.8f, 0.0f);
 
