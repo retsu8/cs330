@@ -570,7 +570,7 @@ void SceneManager::RenderScene()
 	/*** Creating the stick for the press ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.085f, 2.0f, 0.085f);
+	scaleXYZ = glm::vec3(0.015f, 0.5f, 0.015f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
