@@ -425,8 +425,8 @@ void SceneManager::RenderScene()
 		YrotationDegrees,
 		ZrotationDegrees,
 		positionXYZ);
-	// set the color values into the shader
-	SetShaderColor(0.882f, 0.647f, 0.804f, 1.0f);
+
+	SetShaderColor(1, 1, 1, 1);
 
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
