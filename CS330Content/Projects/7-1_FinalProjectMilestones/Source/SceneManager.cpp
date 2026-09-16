@@ -386,6 +386,7 @@ void SceneManager::PrepareScene()
 	// in the rendered 3D scene
 
 	m_basicMeshes->LoadPlaneMesh();
+	m_basicMeshes->LoadCylinderMesh();
 }
 
 /***********************************************************
