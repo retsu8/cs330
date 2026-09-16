@@ -543,7 +543,7 @@ void SceneManager::RenderScene()
 	/*** Creating the torus for the lid  ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(1.0f, 1.0f, 0.5f);
+	scaleXYZ = glm::vec3(1.0f, 0.5f, 0.5f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 90.0f;
