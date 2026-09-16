@@ -461,7 +461,7 @@ void SceneManager::RenderScene()
 	/*** Creating the base for the coffee maker out of a cylinder   ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.9f, 5.1f, 0.9f);
+	scaleXYZ = glm::vec3(0.9f, 4.7f, 0.9f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
@@ -470,6 +470,33 @@ void SceneManager::RenderScene()
 
 	// set the XYZ position for the mesh
 	positionXYZ = glm::vec3(9.0f, 0.0f, 0.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0, 0, 0, 0.16f);
+
+	m_basicMeshes->DrawCylinderMesh();
+
+		/****************************************************************/
+	/*** Set needed transformations before drawing the basic mesh.  ***/
+	/*** Creating the handle going out from the cylinder  ***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(1.0f, 1.0f, 1.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 90.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
