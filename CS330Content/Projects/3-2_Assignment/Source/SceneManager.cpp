@@ -139,7 +139,7 @@ void SceneManager::PrepareScene()
 
 	m_basicMeshes->LoadPlaneMesh();
 	m_basicMeshes->LoadCylinderMesh();
-	m_basicMeshes->LoadBoxMesh()
+	m_basicMeshes->LoadBoxMesh();
 }
 
 /***********************************************************
