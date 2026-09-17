@@ -388,6 +388,7 @@ void SceneManager::PrepareScene()
 	m_basicMeshes->LoadPlaneMesh();
 	m_basicMeshes->LoadCylinderMesh();
 	m_basicMeshes->LoadTorusMesh();
+	m_basicMeshes->LoadTaperedCylinderMesh()
 }
 
 /***********************************************************
@@ -646,4 +647,31 @@ void SceneManager::RenderScene()
 	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
 
 	m_basicMeshes->DrawCylinderMesh();
+
+			/****************************************************************/
+	/*** Set needed transformations before drawing the basic mesh.  ***/
+	/*** Adding the spout ***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(1.0f, 1.0f, 1.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
+
+	m_basicMeshes->DrawTaperedCylinderMesh();
 }
