@@ -595,10 +595,37 @@ void SceneManager::RenderScene()
 
 	/****************************************************************/
 	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** Creating the stick for the press ***/
+	/*** Creating the stick top for the press ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(0.075f, 0.325f, 0.075f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(9.0f, 4.9f, 0.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
+
+	m_basicMeshes->DrawCylinderMesh();
+
+		/****************************************************************/
+	/*** Set needed transformations before drawing the basic mesh.  ***/
+	/*** Creating the second press stick top for the press ***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(0.85f, 0.225f, 0.85f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
