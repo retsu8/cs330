@@ -625,7 +625,7 @@ void SceneManager::RenderScene()
 	/*** Creating the second press stick top for the press ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.25f, 0.225f, 0.25f);
+	scaleXYZ = glm::vec3(0.25f, 0.125f, 0.25f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
@@ -633,7 +633,7 @@ void SceneManager::RenderScene()
 	ZrotationDegrees = 0.0f;
 
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(9.0f, 4.9f, 0.0f);
+	positionXYZ = glm::vec3(9.0f, 5.1f, 0.0f);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
