@@ -388,7 +388,7 @@ void SceneManager::PrepareScene()
 	m_basicMeshes->LoadPlaneMesh();
 	m_basicMeshes->LoadCylinderMesh();
 	m_basicMeshes->LoadTorusMesh();
-	m_basicMeshes->LoadTaperedCylinderMesh()
+	m_basicMeshes->LoadTaperedCylinderMesh(); 
 }
 
 /***********************************************************
