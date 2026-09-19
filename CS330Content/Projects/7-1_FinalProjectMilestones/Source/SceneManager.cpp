@@ -653,7 +653,7 @@ void SceneManager::RenderScene()
 	/*** Adding the spout ***/
 	/******************************************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(3.0f, 0.5f, 1.0f);
+	scaleXYZ = glm::vec3(1.5f, 0.5f, 1.0f);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 180.0f;
