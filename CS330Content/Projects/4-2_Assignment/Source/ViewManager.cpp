@@ -102,6 +102,7 @@ GLFWwindow* ViewManager::CreateDisplayWindow(const char* windowTitle)
 
 	// this callback is used to receive mouse moving events
 	glfwSetCursorPosCallback(window, &ViewManager::Mouse_Position_Callback);
+	glfwSetScrollCallback(window, &ViewManager::Mouse_Position_Callback);
 	
 	// tell GLFW to capture all mouse events
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
