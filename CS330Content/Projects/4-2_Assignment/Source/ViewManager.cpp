@@ -102,9 +102,7 @@ GLFWwindow* ViewManager::CreateDisplayWindow(const char* windowTitle)
 
 	// this callback is used to receive mouse moving events
 	glfwSetCursorPosCallback(window, &ViewManager::Mouse_Position_Callback);
-
-	// Adding in mouse scroll callback for mouse event
-	glfwSetScrollCallback(window, &ViewManager::Mouse_Scroll_Callback);
+	
 	// tell GLFW to capture all mouse events
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
@@ -142,36 +140,6 @@ void ViewManager::Mouse_Position_Callback(GLFWwindow* window, double xMousePos, 
 	// set the current positions into the last position variables
 	gLastX = xMousePos;
 	gLastY = yMousePos;
-
-	// move the 3D camera according to the calculated offsets
-	g_pCamera->ProcessMouseMovement(xOffset, yOffset);
-}
-
-/***********************************************************
- *  Mouse_Scroll_Callback()
- *
- *  This method is automatically called from GLFW whenever
- *  the mouse is scrolled within the active GLFW display window.
- ***********************************************************/
-void ViewManager::Mouse_Scroll_Callback(GLFWwindow* window, double xoffset, double yoffset)
-{
-	// when the first mouse move event is received, this needs to be recorded so that
-	// all subsequent mouse moves can correctly calculate the X position offset and Y
-	// position offset for proper operation
-	if (gFirstMouse)
-	{
-		gLastX = xoffset;
-		gLastY = yoffset;
-		gFirstMouse = false;
-	}
-
-	// calculate the X offset and Y offset values for moving the 3D camera accordingly
-	float xoffset = xoffset - gLastX;
-	float yoffset = gLastY - yoffset; // reversed since y-coordinates go from bottom to top
-
-	// set the current positions into the last position variables
-	gLastX = xoffset;
-	gLastY = yoffset;
 
 	// move the 3D camera according to the calculated offsets
 	g_pCamera->ProcessMouseMovement(xOffset, yOffset);
