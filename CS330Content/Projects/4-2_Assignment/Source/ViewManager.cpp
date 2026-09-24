@@ -203,7 +203,7 @@ void ViewManager::ProcessKeyboardEvents()
  ***********************************************************/
 void ViewManager::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 {
-    camera.ProcessMouseScroll(static_cast<float>(yoffset));
+    g_pCamera->ProcessMouseScroll(static_cast<float>(yoffset));
 
 }
 /***********************************************************
