@@ -102,7 +102,7 @@ GLFWwindow* ViewManager::CreateDisplayWindow(const char* windowTitle)
 
 	// this callback is used to receive mouse moving events
 	glfwSetCursorPosCallback(window, &ViewManager::Mouse_Position_Callback);
-	glfwSetScrollCallback(window, &ViewManager::Mouse_Position_Callback);
+	glfwSetScrollCallback(window, &ViewManager::ScrollCallback);
 	
 	// tell GLFW to capture all mouse events
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -196,6 +196,16 @@ void ViewManager::ProcessKeyboardEvents()
 	}
 }
 
+/***********************************************************
+ *  ScrollCallback()
+ *
+ *  This method is used to handle the mouse scroll function
+ ***********************************************************/
+void ViewManager::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    camera.ProcessMouseScroll(static_cast<float>(yoffset));
+
+}
 /***********************************************************
  *  PrepareSceneView()
  *
