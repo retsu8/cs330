@@ -26,7 +26,7 @@ public:
 
 	// mouse position callback for mouse interaction with the 3D scene
 	static void Mouse_Position_Callback(GLFWwindow* window, double xMousePos, double yMousePos);
-	static void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+	static void ScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 
 private:
 	// pointer to shader manager object
