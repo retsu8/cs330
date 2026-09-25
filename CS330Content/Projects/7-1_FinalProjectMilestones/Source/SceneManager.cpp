@@ -392,32 +392,28 @@ void SceneManager::PrepareScene()
 }
 
 /***********************************************************
- *  RenderScene()
+ *  CreatePlane()
  *
  *  This method is used for rendering the 3D scene by 
  *  transforming and drawing the basic 3D shapes
  ***********************************************************/
-void SceneManager::RenderScene()
-{
+void SceneManager::CreatePlane(
+	std::float XrotationDegrees, std:float YrotationDegrees, std:float ZrotationDegrees,
+	stp::float xscale, std:float yscale, std:float zscale,
+	stp::float Xposition, std:float Yposition, std:float Zposition,
+	stp::float color1, std:float color2, std:float color3, std:float color4,
+){
 	// declare the variables for the transformations
 	glm::vec3 scaleXYZ;
-	float XrotationDegrees = 0.0f;
-	float YrotationDegrees = 0.0f;
-	float ZrotationDegrees = 0.0f;
 	glm::vec3 positionXYZ;
 
 	/*** This is the countertop of the image  ***/
 	/********************************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
+	scaleXYZ = glm::vec3(xscale, yscale, zscale);
 
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+	positionXYZ = glm::vec3(Xposition, Yposition, Zposition);
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
@@ -427,15 +423,24 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(1, 1, 1, 1);
+	SetShaderColor(color1, color2, color3, color4);
 
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
-
+}
+/***********************************************************
+ *  RenderScene()
+ *
+ *  This method is used for rendering the 3D scene by 
+ *  transforming and drawing the basic 3D shapes
+ ***********************************************************/
+void SceneManager::RenderScene()
+{
+	CreatePlane(0.0f, 0.0f, 0.0f);
 	/*** The backsplash is set here  ***/
 	/***********************************/
 	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
+	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f, 20.0f, 1.0f, 10.0f, 0.0f, 0.0f, 0.0f, 1, 1, 1, 1);
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 90.0f;
