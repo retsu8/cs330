@@ -392,17 +392,17 @@ void SceneManager::PrepareScene()
 }
 
 /***********************************************************
- *  CreatePlane()
+ *  CreateObject()
  *
  *  This method is used for rendering the 3D scene by 
  *  transforming and drawing the basic 3D shapes
  ***********************************************************/
-void SceneManager::CreatePlane(
+void SceneManager::CreateObject(
 	std::float XrotationDegrees, std:float YrotationDegrees, std:float ZrotationDegrees,
 	stp::float xscale, std:float yscale, std:float zscale,
 	stp::float Xposition, std:float Yposition, std:float Zposition,
-	stp::float color1, std:float color2, std:float color3, std:float color4,
-){
+	stp::float color1, std:float color2, std:float color3, std:float color4)
+{
 	// declare the variables for the transformations
 	glm::vec3 scaleXYZ;
 	glm::vec3 positionXYZ;
@@ -424,9 +424,6 @@ void SceneManager::CreatePlane(
 		positionXYZ);
 
 	SetShaderColor(color1, color2, color3, color4);
-
-	// draw the mesh with transformation values
-	m_basicMeshes->DrawPlaneMesh();
 }
 
 /***********************************************************
@@ -438,99 +435,53 @@ void SceneManager::CreatePlane(
 void SceneManager::RenderScene()
 {
 	// Create the floor plane
-	CreatePlane(0.0f, 0.0f, 0.0f, 20.0f, 1.0f, 10.0f, 0.0f, 0.0f, 0.0f, 1, 1, 1, 1);
-	CreatePlane(90.0f, 0.0f, 0.0f, 20.0f, 1.0f, 10.0f, 0.0f, 9.0f, -10.0f, 1, 1, 1, 1);
+	CreateObject(0.0f, 0.0f, 0.0f, 
+		20.0f, 1.0f, 10.0f, 
+		0.0f, 0.0f, 0.0f, 
+		1.0f, 1.0f, 1.0f, 1.0f);
+	m_basicMeshes->DrawPlaneMesh();
 
+	// Create the back plane
+	CreateObject(
+		90.0f, 0.0f, 0.0f, 
+		20.0f, 1.0f, 10.0f, 
+		0.0f, 9.0f, -10.0f, 
+		1.0f, 1.0f, 1.0f, 1.0f);
+	m_basicMeshes->DrawPlaneMesh();
 
-	/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** Creating the base for the coffee maker out of a cylinder   ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.9f, 4.7f, 1.0f);
-	float XrotationDegrees = 0.0f;
-	float YrotationDegrees = 0.0f;
-	float ZrotationDegrees = 0.0f;
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(9.0f, 0.0f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 1);
-
+	//*** Creating the base for the coffee maker out of a cylinder   ***/
+	CreateObject(
+		0.9f, 4.7f, 1.0f, 
+		0.0f, 0.0f, 0.0f, 
+		9.0f, 0.0f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 1.0f);
 	m_basicMeshes->DrawCylinderMesh();
 
-		/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Creating the handle going out from the cylinder  ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.3f, 1.2f, 0.3f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 90.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(8.0f, 3.8f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
-
+	CreateObject(
+		0.3f, 1.2f, 0.3f, 
+		0.0f, 0.0f, 90.0f, 
+		8.0f, 3.8f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
-			/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Creating the handle going down from the cylinder  ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.35f, 1.4f, 0.3f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(7.0f, 2.8f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
-
+	CreateObject(
+		0.0f, 0.0f, 90.0f, 
+		0.35f, 1.4f, 0.3f, 
+		7.0f, 2.8f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
-			/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Creating the torus for the lid  ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(1.0f, 0.5f, 0.5f);
+	CreateObject(
+		0.0f, 0.0f, 90.0f, 
+		1.0f, 0.5f, 0.5f 
+		7.0f, 2.8f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 0.90f);
+	m_basicMeshes->DrawTorusMesh();
+
+	scaleXYZ = glm::vec3();
 
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 90.0f;
@@ -550,7 +501,7 @@ void SceneManager::RenderScene()
 
 	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
 
-	m_basicMeshes->DrawTorusMesh();
+	
 
 				/****************************************************************/
 	/*** Set needed transformations before drawing the basic mesh.  ***/
