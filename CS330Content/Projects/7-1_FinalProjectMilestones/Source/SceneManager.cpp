@@ -398,10 +398,10 @@ void SceneManager::PrepareScene()
  *  transforming and drawing the basic 3D shapes
  ***********************************************************/
 void SceneManager::CreateObject(
-	std::float XrotationDegrees, std:float YrotationDegrees, std:float ZrotationDegrees,
-	stp::float xscale, std:float yscale, std:float zscale,
-	stp::float Xposition, std:float Yposition, std:float Zposition,
-	stp::float color1, std:float color2, std:float color3, std:float color4)
+	float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
+	float xscale, float yscale, float zscale,
+	float Xposition, float Yposition, float Zposition,
+	float color1, float color2, float color3, float color4)
 {
 	// declare the variables for the transformations
 	glm::vec3 scaleXYZ;
