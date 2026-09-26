@@ -456,7 +456,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.9f, 4.7f, 1.0f, 
 		9.0f, 0.0f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 1.0f);
+		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going out from the cylinder  ***/
@@ -469,7 +469,7 @@ void SceneManager::RenderScene()
 
 	/*** Creating the handle going down from the cylinder  ***/
 	CreateObject(
-		pos[0], pos[1], pos[2] + 90.0f, 
+		pos[0], pos[1], pos[2], 
 		0.35f, 1.4f, 0.3f, 
 		7.0f, 2.8f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
@@ -479,7 +479,7 @@ void SceneManager::RenderScene()
 	CreateObject(
 		pos[0] + 90, pos[1], pos[2], 
 		1.0f, 0.5f, 0.5f, 
-		7.0f, 2.8f, 0.0f, 
+		9.0f, 4.7f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawTorusMesh();
 
