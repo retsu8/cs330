@@ -98,7 +98,7 @@ private:
 		std::string materialTag);
 
 	// Create object for easier use
-	void SceneManager::CreateObject(
+	void CreateObject(
 		float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
 		float xscale, float yscale, float zscale,
 		float Xposition, float Yposition, float Zposition,
