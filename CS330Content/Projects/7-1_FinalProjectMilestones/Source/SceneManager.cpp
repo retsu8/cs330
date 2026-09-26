@@ -435,8 +435,8 @@ void SceneManager::CreateObject(
 void SceneManager::RenderScene()
 {
 	float pos[3] = {0.0f, 0.0f, 0.0f};
-	float coffee_color[4] = {0.211f, 0.211f, 0.211f, 0.90f}
-	float coffee_pos[3] = {9.0f, 0.0f, 0.0f}
+	float coffee_color[4] = {0.211f, 0.211f, 0.211f, 0.90f};
+	float coffee_pos[3] = {9.0f, 0.0f, 0.0f};
 
 	// Create the floor plane
 	CreateObject(pos[0], pos[1], pos[2],
