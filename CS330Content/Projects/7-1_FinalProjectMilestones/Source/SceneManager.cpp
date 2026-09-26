@@ -434,8 +434,10 @@ void SceneManager::CreateObject(
  ***********************************************************/
 void SceneManager::RenderScene()
 {
+	float pos[3] = {0.0f, 0.0f, 0.0f};
+
 	// Create the floor plane
-	CreateObject(0.0f, 0.0f, 0.0f, 
+	CreateObject(pos[0], pos[1], pos[2],
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 0.0f, 0.0f, 
 		1.0f, 1.0f, 1.0f, 1.0f);
@@ -443,7 +445,7 @@ void SceneManager::RenderScene()
 
 	// Create the back plane
 	CreateObject(
-		90.0f, 0.0f, 0.0f, 
+		pos[0] + 90, pos[1], pos[2], 
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 9.0f, -10.0f, 
 		1.0f, 1.0f, 1.0f, 1.0f);
