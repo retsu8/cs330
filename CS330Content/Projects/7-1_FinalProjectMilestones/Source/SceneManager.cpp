@@ -453,23 +453,23 @@ void SceneManager::RenderScene()
 
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
 	CreateObject(
+		pos[0], pos[1], pos[2], 
 		0.9f, 4.7f, 1.0f, 
-		0.0f, 0.0f, 0.0f, 
 		9.0f, 0.0f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 1.0f);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going out from the cylinder  ***/
 	CreateObject(
+		pos[0], pos[1], pos[2] + 90.0f, 
 		0.3f, 1.2f, 0.3f, 
-		0.0f, 0.0f, 90.0f, 
 		8.0f, 3.8f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going down from the cylinder  ***/
 	CreateObject(
-		0.0f, 0.0f, 90.0f, 
+		pos[0], pos[1], pos[2] + 90.0f, 
 		0.35f, 1.4f, 0.3f, 
 		7.0f, 2.8f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
@@ -477,7 +477,7 @@ void SceneManager::RenderScene()
 
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
-		90.0f, 0.0f, 0.0f, 
+		pos[0] + 90, pos[1], pos[2], 
 		1.0f, 0.5f, 0.5f, 
 		7.0f, 2.8f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
@@ -485,7 +485,7 @@ void SceneManager::RenderScene()
 
 	/*** Creating the stick for the press ***/
 	CreateObject(
-		0.0f, 0.0f, 90.0f, 
+		pos[0], pos[1], pos[2] + 90.0f, 
 		0.055f, 0.5f, 0.055f,
 		9.0f, 4.7f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
@@ -493,15 +493,15 @@ void SceneManager::RenderScene()
 
 	/*** Creating the stick top for the press ***/
 	CreateObject(
-		0.0f, 0.0f, 0.0f, 
+		pos[0], pos[1], pos[2], 
 		0.075f, 0.325f, 0.075f,
 		9.0f, 4.9f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the second press stick top for the press ***/
-		CreateObject(
-		0.0f, 0.0f, 0.0f, 
+	CreateObject(
+		pos[0], pos[1], pos[2], 
 		0.25f, 0.125f, 0.25f,
 		9.0f, 5.1f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
@@ -509,7 +509,7 @@ void SceneManager::RenderScene()
 
 	/*** Adding the spout ***/
 	CreateObject(
-		180.0f, 0.0f, 0.0f, 
+		pos[0]+180, pos[1], pos[2],
 		1.2f, 0.5f, 1.0f,
 		9.5f, 4.5f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
