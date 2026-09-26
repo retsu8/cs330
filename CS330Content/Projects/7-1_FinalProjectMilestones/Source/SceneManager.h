@@ -98,7 +98,7 @@ private:
 		std::string materialTag);
 
 	// Create planes for easier use
-	void SceneManager::CreatePlane(
+	void SceneManager::CreateObject(
 		std::float XrotationDegrees, std:float YrotationDegrees, std:float ZrotationDegrees,
 		stp::float xscale, std:float yscale, std:float zscale,
 		stp::float Xposition, std:float Yposition, std:float Zposition,
