@@ -435,6 +435,8 @@ void SceneManager::CreateObject(
 void SceneManager::RenderScene()
 {
 	float pos[3] = {0.0f, 0.0f, 0.0f};
+	float coffee_color[4] = {0.211f, 0.211f, 0.211f, 0.90f}
+	float coffee_pos[3] = {9.0f, 0.0f, 0.0f}
 
 	// Create the floor plane
 	CreateObject(pos[0], pos[1], pos[2],
@@ -455,63 +457,63 @@ void SceneManager::RenderScene()
 	CreateObject(
 		pos[0], pos[1], pos[2], 
 		0.9f, 4.7f, 1.0f, 
-		9.0f, 0.0f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going out from the cylinder  ***/
 	CreateObject(
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.3f, 1.2f, 0.3f, 
-		8.0f, 3.8f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going down from the cylinder  ***/
 	CreateObject(
 		pos[0], pos[1], pos[2], 
 		0.35f, 1.4f, 0.3f, 
-		7.0f, 2.8f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
 		pos[0] + 90, pos[1], pos[2], 
 		1.0f, 0.5f, 0.5f, 
-		9.0f, 4.7f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0], coffee_pos[1]+4.7f coffee_pos[2],
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawTorusMesh();
 
 	/*** Creating the stick for the press ***/
 	CreateObject(
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.055f, 0.5f, 0.055f,
-		9.0f, 4.7f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the stick top for the press ***/
 	CreateObject(
 		pos[0], pos[1], pos[2], 
 		0.075f, 0.325f, 0.075f,
-		9.0f, 4.9f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0], coffee_pos[1]+4.9, coffee_pos[2],
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the second press stick top for the press ***/
 	CreateObject(
 		pos[0], pos[1], pos[2], 
 		0.25f, 0.125f, 0.25f,
-		9.0f, 5.1f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0], coffee_pos[1]+5.1f, coffee_pos[2],
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Adding the spout ***/
 	CreateObject(
 		pos[0]+180, pos[1], pos[2],
 		1.2f, 0.5f, 1.0f,
-		9.5f, 4.5f, 0.0f, 
-		0.211f, 0.211f, 0.211f, 0.90f);
+		coffee_pos[0] + 0.5f, coffee_pos[1] + 4.5f, coffee_pos[2],
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawTaperedCylinderMesh();
 }
