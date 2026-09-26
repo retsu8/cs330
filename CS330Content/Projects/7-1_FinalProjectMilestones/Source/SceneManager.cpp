@@ -456,7 +456,7 @@ void SceneManager::RenderScene()
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
 	CreateObject(
 		pos[0], pos[1], pos[2], 
-		0.9f, 4.7f, 1.0f, 
+		1.1f, 4.7f, 1.0f, 
 		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
 		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawCylinderMesh();
