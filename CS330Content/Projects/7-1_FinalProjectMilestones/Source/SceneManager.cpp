@@ -475,140 +475,41 @@ void SceneManager::RenderScene()
 
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
-		0.0f, 0.0f, 90.0f, 
-		1.0f, 0.5f, 0.5f 
+		90.0f, 0.0f, 0.0f, 
+		1.0f, 0.5f, 0.5f, 
 		7.0f, 2.8f, 0.0f, 
 		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawTorusMesh();
 
-	scaleXYZ = glm::vec3();
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 90.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(9.0f, 4.7f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
-
-	
-
-				/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Creating the stick for the press ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.055f, 0.5f, 0.055f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(9.0f, 4.7f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
-
+	CreateObject(
+		0.0f, 0.0f, 90.0f, 
+		0.055f, 0.5f, 0.055f,
+		9.0f, 4.7f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
-
-	/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Creating the stick top for the press ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.075f, 0.325f, 0.075f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(9.0f, 4.9f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
-
+	CreateObject(
+		0.0f, 0.0f, 0.0f, 
+		0.075f, 0.325f, 0.075f,
+		9.0f, 4.9f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
-		/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Creating the second press stick top for the press ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.25f, 0.125f, 0.25f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(9.0f, 5.1f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
-
+		CreateObject(
+		0.0f, 0.0f, 0.0f, 
+		0.25f, 0.125f, 0.25f,
+		9.0f, 5.1f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawCylinderMesh();
 
-			/****************************************************************/
-	/*** Set needed transformations before drawing the basic mesh.  ***/
 	/*** Adding the spout ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(1.2f, 0.5f, 1.0f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 180.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(9.5f, 4.5f, 0.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.211f, 0.211f, 0.211f, 0.90f);
-
+	CreateObject(
+		180.0f, 0.0f, 0.0f, 
+		1.2f, 0.5f, 1.0f,
+		9.5f, 4.5f, 0.0f, 
+		0.211f, 0.211f, 0.211f, 0.90f);
 	m_basicMeshes->DrawTaperedCylinderMesh();
 }
