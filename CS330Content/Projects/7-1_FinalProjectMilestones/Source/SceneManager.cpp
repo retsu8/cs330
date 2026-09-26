@@ -481,7 +481,7 @@ void SceneManager::RenderScene()
 	CreateObject(
 		pos[0] + 90, pos[1], pos[2], 
 		1.0f, 0.5f, 0.5f, 
-		coffee_pos[0], coffee_pos[1]+4.7f coffee_pos[2],
+		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
 	m_basicMeshes->DrawTorusMesh();
 
