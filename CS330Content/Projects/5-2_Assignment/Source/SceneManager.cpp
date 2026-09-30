@@ -413,7 +413,6 @@ void SceneManager::RenderScene()
 
 	SetShaderTexture("table");
 	SetShaderColor(1, 1, 1, 1);
-	SetShaderMaterial("table");
 
 	// draw the mesh with transformation values - this plane is used for the base
 	m_basicMeshes->DrawPlaneMesh();
