@@ -90,6 +90,10 @@ private:
 	void SetTextureUVScale(
 		float u, float v);
 
+	// This is to render the texter over the object
+	SetShaderTexture(
+		std::string textureTag)
+
 public:
 
 	/*** The following methods are for the students to ***/
