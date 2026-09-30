@@ -335,6 +335,7 @@ void SceneManager::LoadSceneTextures()
 	/*** 16 textures can be loaded per scene. Refer to the code in   ***/
 	/*** the OpenGL Sample for help.                                 ***/
 
+	bool bReturn = false;
 	bReturn = CreateGLTexture(
 		"../Textures/rusticwood.jpg",
 		"table");
