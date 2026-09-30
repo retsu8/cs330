@@ -386,44 +386,6 @@ void SceneManager::PrepareScene()
 	// in the rendered 3D scene
 
 	m_basicMeshes->LoadPlaneMesh();
-	m_basicMeshes->LoadCylinderMesh();
-	m_basicMeshes->LoadTorusMesh();
-	m_basicMeshes->LoadTaperedCylinderMesh(); 
-}
-
-/***********************************************************
- *  CreateObject()
- *
- *  This method is used for rendering the 3D scene by 
- *  transforming and drawing the basic 3D shapes
- ***********************************************************/
-void SceneManager::CreateObject(
-	float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
-	float xscale, float yscale, float zscale,
-	float Xposition, float Yposition, float Zposition,
-	float color1, float color2, float color3, float color4)
-{
-	// declare the variables for the transformations
-	glm::vec3 scaleXYZ;
-	glm::vec3 positionXYZ;
-
-	/*** This is the countertop of the image  ***/
-	/********************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(xscale, yscale, zscale);
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(Xposition, Yposition, Zposition);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(color1, color2, color3, color4);
 }
 
 /***********************************************************
@@ -434,86 +396,39 @@ void SceneManager::CreateObject(
  ***********************************************************/
 void SceneManager::RenderScene()
 {
-	float pos[3] = {0.0f, 0.0f, 0.0f};
-	float coffee_color[4] = {0.211f, 0.211f, 0.211f, 0.90f};
-	float coffee_pos[3] = {9.0f, 0.0f, 0.0f};
+	// declare the variables for the transformations
+	glm::vec3 scaleXYZ;
+	float XrotationDegrees = 0.0f;
+	float YrotationDegrees = 0.0f;
+	float ZrotationDegrees = 0.0f;
+	glm::vec3 positionXYZ;
 
-	// Create the floor plane
-	CreateObject(pos[0], pos[1], pos[2],
-		20.0f, 1.0f, 10.0f, 
-		0.0f, 0.0f, 0.0f, 
-		1.0f, 1.0f, 1.0f, 1.0f);
+	/*** Set needed transformations before drawing the basic mesh.  ***/
+	/*** This same ordering of code should be used for transforming ***/
+	/*** and drawing all the basic 3D shapes.						***/
+	/******************************************************************/
+	// set the XYZ scale for the mesh
+	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
+
+	// set the XYZ rotation for the mesh
+	XrotationDegrees = 0.0f;
+	YrotationDegrees = 0.0f;
+	ZrotationDegrees = 0.0f;
+
+	// set the XYZ position for the mesh
+	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+
+	// set the transformations into memory to be used on the drawn meshes
+	SetTransformations(
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
+	SetShaderColor(1, 1, 1, 1);
+
+	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
-
-	// Create the back plane
-	CreateObject(
-		pos[0] + 90, pos[1], pos[2], 
-		20.0f, 1.0f, 10.0f, 
-		0.0f, 9.0f, -10.0f, 
-		1.0f, 1.0f, 1.0f, 1.0f);
-	m_basicMeshes->DrawPlaneMesh();
-
-	//*** Creating the base for the coffee maker out of a cylinder   ***/
-	CreateObject(
-		pos[0], pos[1], pos[2], 
-		1.1f, 4.7f, 1.0f, 
-		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawCylinderMesh();
-
-	/*** Creating the handle going out from the cylinder  ***/
-	CreateObject(
-		pos[0], pos[1], pos[2] + 90.0f, 
-		0.3f, 1.2f, 0.3f, 
-		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawCylinderMesh();
-
-	/*** Creating the handle going down from the cylinder  ***/
-	CreateObject(
-		pos[0], pos[1], pos[2], 
-		0.35f, 1.4f, 0.3f, 
-		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawCylinderMesh();
-
-	/*** Creating the torus for the lid  ***/
-	CreateObject(
-		pos[0] + 90, pos[1], pos[2], 
-		1.0f, 0.5f, 0.5f, 
-		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawTorusMesh();
-
-	/*** Creating the stick for the press ***/
-	CreateObject(
-		pos[0], pos[1], pos[2] + 90.0f, 
-		0.055f, 0.5f, 0.055f,
-		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawCylinderMesh();
-
-	/*** Creating the stick top for the press ***/
-	CreateObject(
-		pos[0], pos[1], pos[2], 
-		0.075f, 0.325f, 0.075f,
-		coffee_pos[0], coffee_pos[1]+4.9, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawCylinderMesh();
-
-	/*** Creating the second press stick top for the press ***/
-	CreateObject(
-		pos[0], pos[1], pos[2], 
-		0.25f, 0.125f, 0.25f,
-		coffee_pos[0], coffee_pos[1]+5.1f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawCylinderMesh();
-
-	/*** Adding the spout ***/
-	CreateObject(
-		pos[0]+180, pos[1], pos[2],
-		1.2f, 0.5f, 1.0f,
-		coffee_pos[0] + 0.5f, coffee_pos[1] + 4.5f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
-	m_basicMeshes->DrawTaperedCylinderMesh();
+	/****************************************************************/
 }

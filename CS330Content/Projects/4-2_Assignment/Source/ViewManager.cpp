@@ -102,8 +102,7 @@ GLFWwindow* ViewManager::CreateDisplayWindow(const char* windowTitle)
 
 	// this callback is used to receive mouse moving events
 	glfwSetCursorPosCallback(window, &ViewManager::Mouse_Position_Callback);
-	glfwSetScrollCallback(window, &ViewManager::ScrollCallback);
-	
+
 	// tell GLFW to capture all mouse events
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
@@ -185,27 +184,8 @@ void ViewManager::ProcessKeyboardEvents()
 	{
 		g_pCamera->ProcessKeyboard(RIGHT, gDeltaTime);
 	}
-	// Adding in camera handle for UP and Down
-	if (glfwGetKey(m_pWindow, GLFW_KEY_Q) == GLFW_PRESS)
-	{
-		g_pCamera->ProcessKeyboard(UP, gDeltaTime);
-	}	
-	if (glfwGetKey(m_pWindow, GLFW_KEY_E) == GLFW_PRESS)
-	{
-		g_pCamera->ProcessKeyboard(DOWN, gDeltaTime);
-	}
 }
 
-/***********************************************************
- *  ScrollCallback()
- *
- *  This method is used to handle the mouse scroll function
- ***********************************************************/
-void ViewManager::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
-{
-    g_pCamera->ProcessMouseScroll(static_cast<float>(yoffset));
-
-}
 /***********************************************************
  *  PrepareSceneView()
  *

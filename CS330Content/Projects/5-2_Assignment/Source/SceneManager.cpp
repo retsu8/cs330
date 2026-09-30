@@ -166,7 +166,7 @@ void SceneManager::DestroyGLTextures()
 
 /***********************************************************
  *  FindTextureID()
- *
+ *CreateGLTexture
  *  This method is used for getting an ID for the previously
  *  loaded texture bitmap associated with the passed in tag.
  ***********************************************************/
@@ -403,7 +403,9 @@ void SceneManager::RenderScene()
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ,
+		scaleXYZ, CreateGLTexture(
+		"../Textures/rusticwood.jpg",
+		"table"),
 		XrotationDegrees,
 		YrotationDegrees,
 		ZrotationDegrees,

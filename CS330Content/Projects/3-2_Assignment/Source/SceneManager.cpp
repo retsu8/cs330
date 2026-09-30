@@ -138,9 +138,6 @@ void SceneManager::PrepareScene()
 	// in the rendered 3D scene
 
 	m_basicMeshes->LoadPlaneMesh();
-	m_basicMeshes->LoadCylinderMesh();
-	m_basicMeshes->LoadBoxMesh();
-	m_basicMeshes->LoadSphereMesh();
 }
 
 /***********************************************************
@@ -181,7 +178,7 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 	// set the color values into the shader
-	SetShaderColor(0.882f, 0.647f, 0.804f, 1.0f);
+	SetShaderColor(1, 1, 1, 1);
 
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
@@ -211,140 +208,9 @@ void SceneManager::RenderScene()
 		positionXYZ);
 
 	// set the color values into the shader
-	SetShaderColor(0.882f, 0.647f, 0.804f, 1.0f);
+	SetShaderColor(1, 1, 1, 1);
 
 	// draw the mesh with transformation values
 	m_basicMeshes->DrawPlaneMesh();
-
 	/****************************************************************/
-	// Building cylender to draw then setting it on the box         //
-	/****************************************************************/
-		// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.9f, 2.5f, 0.7f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 3.5f, 1.5f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(0.745f, 0.529f, 0.451f, 1.0f);
-
-	m_basicMeshes->DrawCylinderMesh();
-
-	/****************************************************************/
-
-	/*** Drawwing the box on the right, the tall one the cereal box ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(2.0f, 16.0f, 5.0f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 105.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(5.5f, 0.0f, 1.3f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(1, 1, 1, 1);
-
-	m_basicMeshes->DrawBoxMesh();
-
-		/****************************************************************/
-
-	/*** Drawwing the box on the left, the small one on its side ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(3.5f, 2.5f, 1.0f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(-4.5f, 0.0f, 4.0f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(1, 1, 1, 1);
-
-	m_basicMeshes->DrawBoxMesh();
-
-	/****************************************************************/
-
-	/*** Drawwing the box in the middle that is square  ***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(4.5f, 6.0f, 4.5f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 45.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(-1.0f, 0.0f, 0.0f);
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(1, 1, 1, 1);
-
-	m_basicMeshes->DrawBoxMesh();
-
-	/****************************************************************/
-	/*** This is the sphere on the image***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(1.0f, 1.35f, 1.0f);
-
-	// set the XYZ rotation for the mesh
-	XrotationDegrees = 0.0f;
-	YrotationDegrees = 0.0f;
-	ZrotationDegrees = 0.0f;
-
-	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(1.7f, 1.0f, 3.8f);
-
-	// set the transformations into memory to be used on the drawn meshes
-	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	SetShaderColor(1, 1, 0, 1);
-
-	m_basicMeshes->DrawSphereMesh();
 }

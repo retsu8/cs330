@@ -29,12 +29,14 @@ public:
 	// destructor
 	~SceneManager();
 
+	// properties for loaded texture access
 	struct TEXTURE_INFO
 	{
 		std::string tag;
 		uint32_t ID;
 	};
 
+	// properties for object materials
 	struct OBJECT_MATERIAL
 	{
 		float ambientStrength;
@@ -49,7 +51,7 @@ private:
 	// pointer to shader manager object
 	ShaderManager* m_pShaderManager;
 	// pointer to basic shapes object
-	ShapeMeshes* m_basicMeshes;
+	ShapeMeshes *m_basicMeshes;
 	// total number of loaded textures
 	int m_loadedTextures;
 	// loaded textures info
@@ -99,9 +101,25 @@ private:
 
 public:
 
-	// The following methods are for the students to 
-	// customize for their own 3D scene
+	// prepare the 3D scene for rendering
 	void PrepareScene();
+	// render the objects in the 3D scene
 	void RenderScene();
 
+	// load all of the needed textures before rendering
+	void LoadSceneTextures();
+	// define all the object materials before rendering
+	void DefineObjectMaterials();
+	// add and define the light sources before rendering
+	void SetupSceneLights();
+
+	// methods for rendering the various objects in the 3D scene
+	void RenderTable();
+	void RenderBackdrop();
+	void RenderCheeseWheel();
+	void RenderBreadLoaf();
+	void RenderWineGlass();
+	void RenderWineBottle();
+	void RenderGrapes();
+	void RenderPlateAndKnife();
 };
