@@ -335,7 +335,9 @@ void SceneManager::LoadSceneTextures()
 	/*** 16 textures can be loaded per scene. Refer to the code in   ***/
 	/*** the OpenGL Sample for help.                                 ***/
 
-
+	bReturn = CreateGLTexture(
+		"../Textures/rusticwood.jpg",
+		"table");
 	
 	
 	// after the texture image data is loaded into memory, the
@@ -403,9 +405,7 @@ void SceneManager::RenderScene()
 
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ, CreateGLTexture(
-		"../Textures/rusticwood.jpg",
-		"table"),
+		scaleXYZ, CreateGLTexture,
 		XrotationDegrees,
 		YrotationDegrees,
 		ZrotationDegrees,
