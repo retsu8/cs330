@@ -639,7 +639,7 @@ void SceneManager::RenderScene()
 
 	SetShaderTexture("wood");
 	//SetShaderColor(1, 1, 1, 1);
-	SetTextureUVScale(1.0, 1.0);
+	SetTextureUVScale(1.0, 0.5);
 	SetShaderMaterial("wood");
 
 	m_basicMeshes->DrawBoxMesh();
@@ -668,7 +668,10 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(1, 1, 1, 1);
+	SetShaderTexture("wood");
+	//SetShaderColor(1, 1, 1, 1);
+	SetTextureUVScale(1.0, 1.0);
+	SetShaderMaterial("cheese");
 
 	m_basicMeshes->DrawBoxMesh();
 	/****************************************************************/
