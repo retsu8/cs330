@@ -410,6 +410,10 @@ void SceneManager::LoadSceneTextures()
 		"../../Utilities/textures/marble.jpg",
 		"marble");
 
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/cheese.jpg",
+		"cheese");
+
 	// after the texture image data is loaded into memory, the
 	// loaded textures need to be bound to texture slots - there
 	// are a total of 16 available slots for scene textures
@@ -668,7 +672,7 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderTexture("wood");
+	SetShaderTexture("cheese");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
 	SetShaderMaterial("cheese");
