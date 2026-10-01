@@ -94,6 +94,9 @@ private:
 	void SetShaderMaterial(
 		std::string materialTag);
 
+	// This method is used for getting a material from the previously
+	bool FindMaterial(std::string tag, OBJECT_MATERIAL &material);
+
 public:
 
 	/*** The following methods are for the students to ***/

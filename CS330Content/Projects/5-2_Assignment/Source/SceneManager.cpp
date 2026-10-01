@@ -300,6 +300,40 @@ void SceneManager::SetShaderTexture(
 	}
 }
 
+/***********************************************************
+ *  FindMaterial()
+ *
+ *  This method is used for getting a material from the previously
+ *  defined materials list that is associated with the passed in tag.
+ ***********************************************************/
+bool SceneManager::FindMaterial(std::string tag, OBJECT_MATERIAL &material)
+{
+	if (m_objectMaterials.size() == 0)
+	{
+		return(false);
+	}
+
+	int index = 0;
+	bool bFound = false;
+	while ((index < m_objectMaterials.size()) && (bFound == false))
+	{
+		if (m_objectMaterials[index].tag.compare(tag) == 0)
+		{
+			bFound = true;
+			material.ambientColor = m_objectMaterials[index].ambientColor;
+			material.ambientStrength = m_objectMaterials[index].ambientStrength;
+			material.diffuseColor = m_objectMaterials[index].diffuseColor;
+			material.specularColor = m_objectMaterials[index].specularColor;
+			material.shininess = m_objectMaterials[index].shininess;
+		}
+		else
+		{
+			index++;
+		}
+	}
+
+	return(true);
+}
 
 /***********************************************************
  *  SetShaderMaterial()
