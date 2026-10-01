@@ -399,11 +399,15 @@ void SceneManager::LoadSceneTextures()
 	bool bReturn = false;
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/stone.png",
+		"../../Utilities/textures/stone.jpg",
 		"stone");
 	
 	bReturn = CreateGLTexture(
 		"../../Utilities/textures/wood.jpg",
+		"wood");	
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/marble.jpg",
 		"wood");
 
 	// after the texture image data is loaded into memory, the
@@ -692,7 +696,10 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(1, 1, 1, 1);
+	SetShaderTexture("marble");
+	//SetShaderColor(1, 1, 1, 1);
+	SetTextureUVScale(1.0, 1.0);
+	SetShaderMaterial("glass");
 
 	m_basicMeshes->DrawSphereMesh();
 	/****************************************************************/
