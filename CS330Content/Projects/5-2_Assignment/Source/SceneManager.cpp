@@ -398,8 +398,8 @@ void SceneManager::LoadSceneTextures()
 
 	bool bReturn = false;
 	bReturn = CreateGLTexture(
-		"../Textures/rusticwood.jpg",
-		"table");
+		"../Textures/stone.jpg",
+		"stone");
 	
 	
 	// after the texture image data is loaded into memory, the
@@ -567,7 +567,7 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderTexture("table");
+	SetShaderTexture("stone");
 	SetShaderColor(1, 1, 1, 1);
 	SetShaderMaterial("backdrop");
 
