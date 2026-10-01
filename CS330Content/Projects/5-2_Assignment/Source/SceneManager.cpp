@@ -471,7 +471,7 @@ void SceneManager::DefineObjectMaterials()
 	darkBreadMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
 	darkBreadMaterial.ambientStrength = 0.2f;
 	darkBreadMaterial.diffuseColor = glm::vec3(0.1f, 0.1f, 0.1f);
-	darkBreadMaterial.specularColor = glm::vec3(0.0f, 0.0f, 0.0f);kdrop
+	darkBreadMaterial.specularColor = glm::vec3(0.0f, 0.0f, 0.0f);
 	darkBreadMaterial.shininess = 0.0;
 	darkBreadMaterial.tag = "darkbread";
 
