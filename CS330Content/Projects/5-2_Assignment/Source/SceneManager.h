@@ -92,7 +92,7 @@ private:
 
 	// This is to render the texter over the object
 	SetShaderTexture(
-		std::string textureTag)
+		std::string textureTag);
 
 public:
 
