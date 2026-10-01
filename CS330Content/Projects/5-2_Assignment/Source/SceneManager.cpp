@@ -408,6 +408,96 @@ void SceneManager::LoadSceneTextures()
 	BindGLTextures();
 }
 
+
+/***********************************************************
+ *  DefineObjectMaterials()
+ *
+ *  This method is used for configuring the various material
+ *  settings for all of the objects within the 3D scene.
+ ***********************************************************/
+void SceneManager::DefineObjectMaterials()
+{
+	OBJECT_MATERIAL goldMaterial;
+	goldMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	goldMaterial.ambientStrength = 0.3f;
+	goldMaterial.diffuseColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	goldMaterial.specularColor = glm::vec3(0.5f, 0.5f, 0.5f);
+	goldMaterial.shininess = 22.0;
+	goldMaterial.tag = "metal";
+
+	m_objectMaterials.push_back(goldMaterial);
+
+	OBJECT_MATERIAL woodMaterial;
+	woodMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	woodMaterial.ambientStrength = 0.2f;
+	woodMaterial.diffuseColor = glm::vec3(0.3f, 0.3f, 0.3f);
+	woodMaterial.specularColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	woodMaterial.shininess = 0.3;
+	woodMaterial.tag = "wood";
+
+	m_objectMaterials.push_back(woodMaterial);
+
+	OBJECT_MATERIAL glassMaterial;
+	glassMaterial.ambientColor = glm::vec3(0.4f, 0.4f, 0.4f);
+	glassMaterial.ambientStrength = 0.3f;
+	glassMaterial.diffuseColor = glm::vec3(0.3f, 0.3f, 0.3f);
+	glassMaterial.specularColor = glm::vec3(0.6f, 0.6f, 0.6f);
+	glassMaterial.shininess = 85.0;
+	glassMaterial.tag = "glass";
+
+	m_objectMaterials.push_back(glassMaterial);
+
+	OBJECT_MATERIAL cheeseMaterial;
+	cheeseMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	cheeseMaterial.ambientStrength = 0.2f;
+	cheeseMaterial.diffuseColor = glm::vec3(0.5f, 0.5f, 0.5f);
+	cheeseMaterial.specularColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	cheeseMaterial.shininess = 0.3;
+	cheeseMaterial.tag = "cheese";
+
+	m_objectMaterials.push_back(cheeseMaterial);
+
+	OBJECT_MATERIAL breadMaterial;
+	breadMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	breadMaterial.ambientStrength = 0.3f;
+	breadMaterial.diffuseColor = glm::vec3(0.5f, 0.5f, 0.5f);
+	breadMaterial.specularColor = glm::vec3(0.3f, 0.3f, 0.3f);
+	breadMaterial.shininess = 0.5;
+	breadMaterial.tag = "bread";
+
+	m_objectMaterials.push_back(breadMaterial);
+
+	OBJECT_MATERIAL darkBreadMaterial;
+	darkBreadMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	darkBreadMaterial.ambientStrength = 0.2f;
+	darkBreadMaterial.diffuseColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	darkBreadMaterial.specularColor = glm::vec3(0.0f, 0.0f, 0.0f);
+	darkBreadMaterial.shininess = 0.0;
+	darkBreadMaterial.tag = "darkbread";
+
+	m_objectMaterials.push_back(darkBreadMaterial);
+
+	OBJECT_MATERIAL backdropMaterial;
+	backdropMaterial.ambientColor = glm::vec3(0.6f, 0.6f, 0.6f);
+	backdropMaterial.ambientStrength = 0.6f;
+	backdropMaterial.diffuseColor = glm::vec3(0.6f, 0.5f, 0.1f);
+	backdropMaterial.specularColor = glm::vec3(0.0f, 0.0f, 0.0f);
+	backdropMaterial.shininess = 0.0;
+	backdropMaterial.tag = "backdrop";
+
+	m_objectMaterials.push_back(backdropMaterial);
+
+	OBJECT_MATERIAL grapeMaterial;
+	grapeMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	grapeMaterial.ambientStrength = 0.1f;
+	grapeMaterial.diffuseColor = glm::vec3(0.3f, 0.2f, 0.3f);
+	grapeMaterial.specularColor = glm::vec3(0.4f, 0.2f, 0.2f);
+	grapeMaterial.shininess = 0.5;
+	grapeMaterial.tag = "grape";
+
+	m_objectMaterials.push_back(grapeMaterial);
+}
+
 /***********************************************************
  *  PrepareScene()
  *
@@ -417,8 +507,12 @@ void SceneManager::LoadSceneTextures()
  ***********************************************************/
 void SceneManager::PrepareScene()
 {
-	// load the textures for the 3D scene
+	// load the texture image files for the textures applied
+	// to objects in the 3D scene
 	LoadSceneTextures();
+	// define the materials that will be used for the objects
+	// in the 3D scene
+	DefineObjectMaterials();
 
 	// only one instance of a particular mesh needs to be
 	// loaded in memory no matter how many times it is drawn
