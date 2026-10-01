@@ -301,25 +301,6 @@ void SceneManager::SetShaderTexture(
 }
 
 /***********************************************************
- *  SetShaderTexture()
- *
- *  This method is used for setting the texture data
- *  associated with the passed in ID into the shader.
- ***********************************************************/
-void SceneManager::SetShaderTexture(
-	std::string textureTag)
-{
-	if (NULL != m_pShaderManager)
-	{
-		m_pShaderManager->setIntValue(g_UseTextureName, true);
-
-		int textureID = -1;
-		textureID = FindTextureSlot(textureTag);
-		m_pShaderManager->setSampler2DValue(g_TextureValueName, textureID);
-	}
-}
-
-/***********************************************************
  *  SetTextureUVScale()
  *
  *  This method is used for setting the texture UV scale
