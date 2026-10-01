@@ -66,6 +66,9 @@ private:
 	int FindTextureID(std::string tag);
 	int FindTextureSlot(std::string tag);
 
+	//  This method is used for configuring the various material
+	void DefineObjectMaterials();
+
 	// set the transformation values 
 	// into the transform buffer
 	void SetTransformations(

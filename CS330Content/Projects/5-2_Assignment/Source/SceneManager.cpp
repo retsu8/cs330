@@ -516,7 +516,7 @@ void SceneManager::PrepareScene()
 
 	// only one instance of a particular mesh needs to be
 	// loaded in memory no matter how many times it is drawn
-	// in the rendered 3D scene
+	// in the rendered 3D scene 
 
 	m_basicMeshes->LoadBoxMesh();
 	m_basicMeshes->LoadPlaneMesh();
