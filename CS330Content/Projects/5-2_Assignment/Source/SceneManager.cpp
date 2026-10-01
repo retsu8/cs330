@@ -408,7 +408,7 @@ void SceneManager::LoadSceneTextures()
 
 	bReturn = CreateGLTexture(
 		"../../Utilities/textures/marble.jpg",
-		"wood");
+		"marble");
 
 	// after the texture image data is loaded into memory, the
 	// loaded textures need to be bound to texture slots - there
