@@ -399,7 +399,7 @@ void SceneManager::LoadSceneTextures()
 	bool bReturn = false;
 	bReturn = CreateGLTexture(
 		"../Textures/rusticwood.jpg",
-		"table");
+		"backdrop");
 	
 	
 	// after the texture image data is loaded into memory, the
