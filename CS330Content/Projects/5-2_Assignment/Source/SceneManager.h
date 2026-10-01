@@ -91,7 +91,7 @@ private:
 		float u, float v);
 
 	// This is to render the texter over the object
-	SetShaderTexture(
+	void SetShaderTexture(
 		std::string textureTag);
 
 public:
