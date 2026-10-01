@@ -568,8 +568,10 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
+	
 	SetShaderTexture("stone");
-	SetShaderColor(1, 1, 1, 1);
+	//SetShaderColor(1, 1, 1, 1);
+	SetTextureUVScale(1.0, 1.0);
 	SetShaderMaterial("backdrop");
 
 
