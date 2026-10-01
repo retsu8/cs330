@@ -300,6 +300,33 @@ void SceneManager::SetShaderTexture(
 	}
 }
 
+
+/***********************************************************
+ *  SetShaderMaterial()
+ *
+ *  This method is used for passing the material values
+ *  into the shader.
+ ***********************************************************/
+void SceneManager::SetShaderMaterial(
+	std::string materialTag)
+{
+	if (m_objectMaterials.size() > 0)
+	{
+		OBJECT_MATERIAL material;
+		bool bReturn = false;
+
+		bReturn = FindMaterial(materialTag, material);
+		if (bReturn == true)
+		{
+			m_pShaderManager->setVec3Value("material.ambientColor", material.ambientColor);
+			m_pShaderManager->setFloatValue("material.ambientStrength", material.ambientStrength);
+			m_pShaderManager->setVec3Value("material.diffuseColor", material.diffuseColor);
+			m_pShaderManager->setVec3Value("material.specularColor", material.specularColor);
+			m_pShaderManager->setFloatValue("material.shininess", material.shininess);
+		}
+	}
+}
+
 /***********************************************************
  *  SetTextureUVScale()
  *
