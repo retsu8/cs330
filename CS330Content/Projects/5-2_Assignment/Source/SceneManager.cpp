@@ -398,7 +398,7 @@ void SceneManager::LoadSceneTextures()
 
 	bool bReturn = false;
 	bReturn = CreateGLTexture(
-		"../Textures/stone.jpg",
+		"../Textures/stone.png",
 		"stone");
 	
 	
