@@ -402,7 +402,10 @@ void SceneManager::LoadSceneTextures()
 		"../../Utilities/textures/stone.png",
 		"stone");
 	
-	
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/wood.jpg",
+		"wood");
+
 	// after the texture image data is loaded into memory, the
 	// loaded textures need to be bound to texture slots - there
 	// are a total of 16 available slots for scene textures
@@ -568,7 +571,7 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	
+
 	SetShaderTexture("stone");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
@@ -630,7 +633,10 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(1, 1, 1, 1);
+	SetShaderTexture("wood");
+	//SetShaderColor(1, 1, 1, 1);
+	SetTextureUVScale(1.0, 1.0);
+	SetShaderMaterial("wood");
 
 	m_basicMeshes->DrawBoxMesh();
 	/****************************************************************/
