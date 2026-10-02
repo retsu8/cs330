@@ -97,12 +97,19 @@ private:
 	void SetShaderMaterial(
 		std::string materialTag);
 
+	// load the scene textures and prep the 3D scene
+	void LoadSceneTextures();
+
+	// configure the varius material settings of the object in the 3d scene
+	void DefineObjectMaterials();
+
 	// Create object for easier use
 	void CreateObject(
-		float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
-		float xscale, float yscale, float zscale,
-		float Xposition, float Yposition, float Zposition,
-		float color1, float color2, float color3, float color4);
+	float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
+	float xscale, float yscale, float zscale,
+	float Xposition, float Yposition, float Zposition,
+	float color1, float color2, float color3, float color4,
+	std:string texture, std:string material);
 
 public:
 

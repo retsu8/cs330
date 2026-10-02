@@ -380,7 +380,14 @@ void SceneManager::SetShaderMaterial(
  *  rendering
  ***********************************************************/
 void SceneManager::PrepareScene()
-{
+{	
+	// load the texture image files for the textures applied
+	// to objects in the 3D scene
+	LoadSceneTextures();
+	// define the materials that will be used for the objects
+	// in the 3D scene
+	DefineObjectMaterials();
+
 	// only one instance of a particular mesh needs to be
 	// loaded in memory no matter how many times it is drawn
 	// in the rendered 3D scene
@@ -389,6 +396,147 @@ void SceneManager::PrepareScene()
 	m_basicMeshes->LoadCylinderMesh();
 	m_basicMeshes->LoadTorusMesh();
 	m_basicMeshes->LoadTaperedCylinderMesh(); 
+}
+/***********************************************************
+ *  DefineObjectMaterials()
+ *
+ *  This method is used for configuring the various material
+ *  settings for all of the objects within the 3D scene.
+ ***********************************************************/
+void SceneManager::DefineObjectMaterials()
+{
+	OBJECT_MATERIAL goldMaterial;
+	goldMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	goldMaterial.ambientStrength = 0.3f;
+	goldMaterial.diffuseColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	goldMaterial.specularColor = glm::vec3(0.5f, 0.5f, 0.5f);
+	goldMaterial.shininess = 22.0;
+	goldMaterial.tag = "metal";
+
+	m_objectMaterials.push_back(goldMaterial);
+
+	OBJECT_MATERIAL woodMaterial;
+	woodMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	woodMaterial.ambientStrength = 0.2f;
+	woodMaterial.diffuseColor = glm::vec3(0.3f, 0.3f, 0.3f);
+	woodMaterial.specularColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	woodMaterial.shininess = 0.3;
+	woodMaterial.tag = "wood";
+
+	m_objectMaterials.push_back(woodMaterial);
+
+	OBJECT_MATERIAL glassMaterial;
+	glassMaterial.ambientColor = glm::vec3(0.4f, 0.4f, 0.4f);
+	glassMaterial.ambientStrength = 0.3f;
+	glassMaterial.diffuseColor = glm::vec3(0.3f, 0.3f, 0.3f);
+	glassMaterial.specularColor = glm::vec3(0.6f, 0.6f, 0.6f);
+	glassMaterial.shininess = 85.0;
+	glassMaterial.tag = "glass";
+
+	m_objectMaterials.push_back(glassMaterial);
+
+	OBJECT_MATERIAL cheeseMaterial;
+	cheeseMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	cheeseMaterial.ambientStrength = 0.2f;
+	cheeseMaterial.diffuseColor = glm::vec3(0.5f, 0.5f, 0.5f);
+	cheeseMaterial.specularColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	cheeseMaterial.shininess = 0.3;
+	cheeseMaterial.tag = "cheese";
+
+	m_objectMaterials.push_back(cheeseMaterial);
+
+	OBJECT_MATERIAL breadMaterial;
+	breadMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	breadMaterial.ambientStrength = 0.3f;
+	breadMaterial.diffuseColor = glm::vec3(0.5f, 0.5f, 0.5f);
+	breadMaterial.specularColor = glm::vec3(0.3f, 0.3f, 0.3f);
+	breadMaterial.shininess = 0.5;
+	breadMaterial.tag = "bread";
+
+	m_objectMaterials.push_back(breadMaterial);
+
+	OBJECT_MATERIAL darkBreadMaterial;
+	darkBreadMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	darkBreadMaterial.ambientStrength = 0.2f;
+	darkBreadMaterial.diffuseColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	darkBreadMaterial.specularColor = glm::vec3(0.0f, 0.0f, 0.0f);
+	darkBreadMaterial.shininess = 0.0;
+	darkBreadMaterial.tag = "darkbread";
+
+	m_objectMaterials.push_back(darkBreadMaterial);
+
+	OBJECT_MATERIAL backdropMaterial;
+	backdropMaterial.ambientColor = glm::vec3(0.6f, 0.6f, 0.6f);
+	backdropMaterial.ambientStrength = 0.6f;
+	backdropMaterial.diffuseColor = glm::vec3(0.6f, 0.5f, 0.1f);
+	backdropMaterial.specularColor = glm::vec3(0.0f, 0.0f, 0.0f);
+	backdropMaterial.shininess = 0.0;
+	backdropMaterial.tag = "backdrop";
+
+	m_objectMaterials.push_back(backdropMaterial);
+
+	OBJECT_MATERIAL grapeMaterial;
+	grapeMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	grapeMaterial.ambientStrength = 0.1f;
+	grapeMaterial.diffuseColor = glm::vec3(0.3f, 0.2f, 0.3f);
+	grapeMaterial.specularColor = glm::vec3(0.4f, 0.2f, 0.2f);
+	grapeMaterial.shininess = 0.5;
+	grapeMaterial.tag = "grape";
+
+	m_objectMaterials.push_back(grapeMaterial);
+}
+
+/***********************************************************
+ *  LoadSceneTextures()
+ *
+ *  This method is used for preparing the 3D scene by loading
+ *  the shapes, textures in memory to support the 3D scene
+ *  rendering
+ ***********************************************************/
+void SceneManager::LoadSceneTextures()
+{
+	bool bReturn = false;
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/base_coffee.jpg",
+		"steel_up");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/cheese_wheel.jpg",
+		"cheese_wheel_side");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/cheese_top.jpg",
+		"cheese_wheel_top");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/breadcrust.jpg",
+		"breadcrust");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/backdrop.jpg",
+		"backdrop");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/knife_handle.jpg",
+		"knifehandle");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/stainless.jpg",
+		"stainless");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/cheddar.jpg",
+		"cheddar");
+
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/circular-brushed-gold-texture.jpg",
+		"knifescrew");
+
+	// after the texture image data is loaded into memory, the
+	// loaded textures need to be bound to texture slots - there
+	// are a total of 16 available slots for scene textures
+	BindGLTextures();
 }
 
 /***********************************************************
@@ -401,7 +549,8 @@ void SceneManager::CreateObject(
 	float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
 	float xscale, float yscale, float zscale,
 	float Xposition, float Yposition, float Zposition,
-	float color1, float color2, float color3, float color4)
+	float color1, float color2, float color3, float color4,
+	std:string texture, std:string material)
 {
 	// declare the variables for the transformations
 	glm::vec3 scaleXYZ;
@@ -423,8 +572,12 @@ void SceneManager::CreateObject(
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(color1, color2, color3, color4);
+	//SetShaderColor(color1, color2, color3, color4);
+	SetShaderTexture(texture);
+	SetTextureUVScale(1.0, 1.0);
+	SetShaderMaterial(material);
 }
+
 
 /***********************************************************
  *  RenderScene()
@@ -442,7 +595,8 @@ void SceneManager::RenderScene()
 	CreateObject(pos[0], pos[1], pos[2],
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 0.0f, 0.0f, 
-		1.0f, 1.0f, 1.0f, 1.0f);
+		1.0f, 1.0f, 1.0f, 1.0f,
+		"steel_up", "metal");
 	m_basicMeshes->DrawPlaneMesh();
 
 	// Create the back plane
@@ -450,7 +604,8 @@ void SceneManager::RenderScene()
 		pos[0] + 90, pos[1], pos[2], 
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 9.0f, -10.0f, 
-		1.0f, 1.0f, 1.0f, 1.0f);
+		1.0f, 1.0f, 1.0f, 1.0f,
+		"steel_up", "metal");
 	m_basicMeshes->DrawPlaneMesh();
 
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
@@ -458,7 +613,8 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		1.1f, 4.7f, 1.0f, 
 		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going out from the cylinder  ***/
@@ -466,7 +622,8 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.3f, 1.2f, 0.3f, 
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going down from the cylinder  ***/
@@ -474,7 +631,8 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.35f, 1.4f, 0.3f, 
 		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the torus for the lid  ***/
@@ -482,7 +640,8 @@ void SceneManager::RenderScene()
 		pos[0] + 90, pos[1], pos[2], 
 		1.0f, 0.5f, 0.5f, 
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawTorusMesh();
 
 	/*** Creating the stick for the press ***/
@@ -490,7 +649,8 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.055f, 0.5f, 0.055f,
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the stick top for the press ***/
@@ -498,7 +658,8 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.075f, 0.325f, 0.075f,
 		coffee_pos[0], coffee_pos[1]+4.9, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the second press stick top for the press ***/
@@ -506,7 +667,8 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.25f, 0.125f, 0.25f,
 		coffee_pos[0], coffee_pos[1]+5.1f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Adding the spout ***/
@@ -514,6 +676,7 @@ void SceneManager::RenderScene()
 		pos[0]+180, pos[1], pos[2],
 		1.2f, 0.5f, 1.0f,
 		coffee_pos[0] + 0.5f, coffee_pos[1] + 4.5f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3]);
+		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		"steel_up", "metal");
 	m_basicMeshes->DrawTaperedCylinderMesh();
 }
