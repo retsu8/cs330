@@ -591,7 +591,6 @@ void SceneManager::RenderScene()
 	SetShaderTexture("stone");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
-	SetShaderMaterial("backdrop");
 
 
 	// draw the mesh with transformation values - this plane is used for the base
