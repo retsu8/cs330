@@ -1,0 +1,9 @@
+﻿  SceneManager.cpp
+C:\Users\Administrator\source\repos\cs330\CS330Content\Projects\7-1_FinalProjectMilestones\Source\SceneManager.cpp(223,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Administrator\source\repos\cs330\CS330Content\Projects\7-1_FinalProjectMilestones\Source\SceneManager.cpp(500,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating code
+  1 of 574 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  7-1_FinalProjectMilestones.vcxproj -> C:\Users\Administrator\source\repos\cs330\CS330Content\Projects\7-1_FinalProjectMilestones\Release\7-1_FinalProjectMilestones.exe

@@ -105,6 +105,7 @@ GLFWwindow* ViewManager::CreateDisplayWindow(const char* windowTitle)
 
 	// this callback is used to receive mouse moving events
 	glfwSetCursorPosCallback(window, &ViewManager::Mouse_Position_Callback);
+	glfwSetScrollCallback(window, &ViewManager::ScrollCallback);
 
 	// enable blending for supporting tranparent rendering
 	glEnable(GL_BLEND);
@@ -123,6 +124,26 @@ GLFWwindow* ViewManager::CreateDisplayWindow(const char* windowTitle)
  ***********************************************************/
 void ViewManager::Mouse_Position_Callback(GLFWwindow* window, double xMousePos, double yMousePos)
 {
+	// when the first mouse move event is received, this needs to be recorded so that
+	// all subsequent mouse moves can correctly calculate the X position offset and Y
+	// position offset for proper operation
+	if (gFirstMouse)
+	{
+		gLastX = xMousePos;
+		gLastY = yMousePos;
+		gFirstMouse = false;
+	}
+
+	// calculate the X offset and Y offset values for moving the 3D camera accordingly
+	float xOffset = xMousePos - gLastX;
+	float yOffset = gLastY - yMousePos; // reversed since y-coordinates go from bottom to top
+
+	// set the current positions into the last position variables
+	gLastX = xMousePos;
+	gLastY = yMousePos;
+
+	// move the 3D camera according to the calculated offsets
+	g_pCamera->ProcessMouseMovement(xOffset, yOffset);
 }
 
 /***********************************************************
@@ -138,8 +159,54 @@ void ViewManager::ProcessKeyboardEvents()
 	{
 		glfwSetWindowShouldClose(m_pWindow, true);
 	}
+
+	// if the camera object is null, then exit this method
+	if (NULL == g_pCamera)
+	{
+		return;
+	}
+
+	// process camera zooming in and out
+	if (glfwGetKey(m_pWindow, GLFW_KEY_W) == GLFW_PRESS)
+	{
+		g_pCamera->ProcessKeyboard(FORWARD, gDeltaTime);
+	}
+	if (glfwGetKey(m_pWindow, GLFW_KEY_S) == GLFW_PRESS)
+	{
+		g_pCamera->ProcessKeyboard(BACKWARD, gDeltaTime);
+	}
+
+	// process camera panning left and right
+	if (glfwGetKey(m_pWindow, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		g_pCamera->ProcessKeyboard(LEFT, gDeltaTime);
+	}
+	if (glfwGetKey(m_pWindow, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		g_pCamera->ProcessKeyboard(RIGHT, gDeltaTime);
+	}
+	// Adding in camera handle for UP and Down
+	if (glfwGetKey(m_pWindow, GLFW_KEY_Q) == GLFW_PRESS)
+	{
+		g_pCamera->ProcessKeyboard(UP, gDeltaTime);
+	}	
+	if (glfwGetKey(m_pWindow, GLFW_KEY_E) == GLFW_PRESS)
+	{
+		g_pCamera->ProcessKeyboard(DOWN, gDeltaTime);
+	}
 }
 
+/***********************************************************
+ *  ScrollCallback()
+ *
+ *  This method is used to handle the mouse scroll function
+ *  This will move the camera slower while the offset scroll is higher 
+ ***********************************************************/
+void ViewManager::ScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    g_pCamera->ProcessMouseScroll(static_cast<float>(yoffset));
+
+}
 /***********************************************************
  *  PrepareSceneView()
  *
