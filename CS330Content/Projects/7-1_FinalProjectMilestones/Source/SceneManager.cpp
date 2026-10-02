@@ -506,8 +506,8 @@ void SceneManager::LoadSceneTextures()
 		"counter");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/cheese_top.jpg",
-		"cheese_wheel_top");
+		"../../Utilities/textures/window.jpg",
+		"window");
 
 	bReturn = CreateGLTexture(
 		"../../Utilities/textures/breadcrust.jpg",
@@ -605,7 +605,7 @@ void SceneManager::RenderScene()
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 9.0f, -10.0f, 
 		1.0f, 1.0f, 1.0f, 1.0f,
-		"counter", "backdrop");
+		"window", "backdrop");
 	m_basicMeshes->DrawPlaneMesh();
 
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
