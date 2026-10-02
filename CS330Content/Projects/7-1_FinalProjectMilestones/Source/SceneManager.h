@@ -109,7 +109,7 @@ private:
 	float xscale, float yscale, float zscale,
 	float Xposition, float Yposition, float Zposition,
 	float color1, float color2, float color3, float color4,
-	std:string texture, std:string material);
+	std::string texture, std::string material);
 
 public:
 
