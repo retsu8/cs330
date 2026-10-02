@@ -745,10 +745,10 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderTexture("metal");
+	SetShaderTexture("steel");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
-	SetShaderMaterial("steel");
+	SetShaderMaterial("metal");
 
 	m_basicMeshes->DrawConeMesh();
 	/****************************************************************/
