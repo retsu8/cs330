@@ -414,6 +414,10 @@ void SceneManager::LoadSceneTextures()
 		"../../Utilities/textures/cheese.jpg",
 		"cheese");
 
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/steel.jpg",
+		"steel");
+
 	// after the texture image data is loaded into memory, the
 	// loaded textures need to be bound to texture slots - there
 	// are a total of 16 available slots for scene textures
