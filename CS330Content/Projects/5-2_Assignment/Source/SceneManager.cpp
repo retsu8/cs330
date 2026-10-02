@@ -623,7 +623,6 @@ void SceneManager::RenderScene()
 	SetShaderTexture("abstract");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
-	SetShaderMaterial("bread");
 
 	m_basicMeshes->DrawCylinderMesh();
 	/****************************************************************/
