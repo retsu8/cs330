@@ -399,7 +399,7 @@ void SceneManager::LoadSceneTextures()
 	bool bReturn = false;
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/stone.jpg",
+		"../../Utilities/textures/stone.png",
 		"stone");
 	
 	bReturn = CreateGLTexture(
@@ -419,8 +419,8 @@ void SceneManager::LoadSceneTextures()
 		"steel");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/abstract.jpg",
-		"abstract");
+		"../../Utilities/textures/plugab.jpg",
+		"plugab");
 
 	// after the texture image data is loaded into memory, the
 	// loaded textures need to be bound to texture slots - there
@@ -591,6 +591,7 @@ void SceneManager::RenderScene()
 	SetShaderTexture("stone");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
+	SetShaderMaterial("backdrop");
 
 
 	// draw the mesh with transformation values - this plane is used for the base
@@ -623,6 +624,7 @@ void SceneManager::RenderScene()
 	SetShaderTexture("abstract");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
+	SetShaderMaterial("bread");
 
 	m_basicMeshes->DrawCylinderMesh();
 	/****************************************************************/
