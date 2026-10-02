@@ -418,6 +418,10 @@ void SceneManager::LoadSceneTextures()
 		"../../Utilities/textures/steel.jpg",
 		"steel");
 
+	bReturn = CreateGLTexture(
+		"../../Utilities/textures/abstract.jpg",
+		"abstract");
+
 	// after the texture image data is loaded into memory, the
 	// loaded textures need to be bound to texture slots - there
 	// are a total of 16 available slots for scene textures
@@ -617,10 +621,10 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderTexture("steel");
+	SetShaderTexture("abstract");
 	//SetShaderColor(1, 1, 1, 1);
 	SetTextureUVScale(1.0, 1.0);
-	SetShaderMaterial("steel");
+	SetShaderMaterial("bread");
 
 	m_basicMeshes->DrawCylinderMesh();
 	/****************************************************************/
@@ -741,7 +745,10 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	SetShaderColor(1, 1, 1, 1);
+	SetShaderTexture("metal");
+	//SetShaderColor(1, 1, 1, 1);
+	SetTextureUVScale(1.0, 1.0);
+	SetShaderMaterial("steel");
 
 	m_basicMeshes->DrawConeMesh();
 	/****************************************************************/
