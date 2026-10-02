@@ -502,8 +502,8 @@ void SceneManager::LoadSceneTextures()
 		"steel_up");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/cheese_wheel.jpg",
-		"cheese_wheel_side");
+		"../../Utilities/textures/counter.avif",
+		"counter");
 
 	bReturn = CreateGLTexture(
 		"../../Utilities/textures/cheese_top.jpg",
@@ -596,7 +596,7 @@ void SceneManager::RenderScene()
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 0.0f, 0.0f, 
 		1.0f, 1.0f, 1.0f, 1.0f,
-		"steel_up", "metal");
+		"counter", "backdrop");
 	m_basicMeshes->DrawPlaneMesh();
 
 	// Create the back plane
@@ -605,7 +605,7 @@ void SceneManager::RenderScene()
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 9.0f, -10.0f, 
 		1.0f, 1.0f, 1.0f, 1.0f,
-		"steel_up", "metal");
+		"counter", "backdrop");
 	m_basicMeshes->DrawPlaneMesh();
 
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
