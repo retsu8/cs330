@@ -75,7 +75,16 @@ int main(int argc, char* argv[])
 	// try to create a new scene manager object and prepare the 3D scene
 	g_SceneManager = new SceneManager(g_ShaderManager);
 	g_SceneManager->PrepareScene();
-
+	
+	std::cout << "\n*** KEY FUNCTIONS: ***\n";
+	std::cout << "ESC - close the window and exit\n";
+	std::cout << "W - zoom in\t" << "S - zoom out\n";
+	std::cout << "A - pan left\t" << "D - pan right\n";
+	std::cout << "Q - pan up\t" << "E - pan down\n";
+	std::cout << "1 - front view (ortho)\n";
+	std::cout << "2 - side view (ortho)\n";
+	std::cout << "3 - top view (ortho)\n";
+	std::cout << "4 - perspective view\n";
 	// loop will keep running until the application is closed 
 	// or until an error has occurred
 	while (!glfwWindowShouldClose(g_Window))
