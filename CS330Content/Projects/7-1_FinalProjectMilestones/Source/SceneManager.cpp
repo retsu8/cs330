@@ -608,7 +608,7 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawPlaneMesh();
 
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
-	CreateObject(dw
+	CreateObject(
 		pos[0], pos[1], pos[2], 
 		1.1f, 4.7f, 1.1f, 
 		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
