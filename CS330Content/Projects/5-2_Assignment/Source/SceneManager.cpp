@@ -659,9 +659,13 @@ void SceneManager::RenderScene()
 		positionXYZ);
 
 	SetShaderTexture("wood");
-	//SetShaderColor(1, 1, 1, 1);
-	SetTextureUVScale(1.0, 0.5);
+	SetTextureUVScale(3.0, 0.5);
 	SetShaderMaterial("wood");
+	m_basicMeshes->DrawCylinderMesh(false, false, true);
+	SetShaderTexture("wood");
+	SetTextureUVScale(1.0f, 1.0f);
+	m_basicMeshes->DrawCylinderMesh(true, true, false);
+
 
 	m_basicMeshes->DrawBoxMesh();
 	/****************************************************************/
