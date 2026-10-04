@@ -650,7 +650,7 @@ void SceneManager::RenderScene()
 	CreateObject(
 		pos[0] + 90, pos[1], pos[2], 
 		0.90f, .90f, 0.5f, 
-		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],s
+		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		0.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawTorusMesh();
