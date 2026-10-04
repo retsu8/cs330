@@ -612,7 +612,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		1.1f, 4.7f, 1.0f, 
 		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
-		1.0f, 1.0f,
+		-1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
