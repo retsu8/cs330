@@ -410,22 +410,22 @@ void SceneManager::LoadSceneTextures()
 
 	// Creating a marble ball
 	bReturn = CreateGLTexture(
-		"../textures/marble.jpg",
+		"textures/marble.jpg",
 		"marble");
 
 	// created a cheese block to
 	bReturn = CreateGLTexture(
-		"../textures/cheese.jpg",
+		"textures/cheese.jpg",
 		"cheese");
 
 	// Creating a steel cone
 	bReturn = CreateGLTexture(
-		"../textures/steel.jpg",
+		"textures/steel.jpg",
 		"steel");
 
 	// Build an abstract cylinder
 	bReturn = CreateGLTexture(
-		"../textures/plugab.jpg",
+		"textures/plugab.jpg",
 		"plugab");
 
 	// after the texture image data is loaded into memory, the
