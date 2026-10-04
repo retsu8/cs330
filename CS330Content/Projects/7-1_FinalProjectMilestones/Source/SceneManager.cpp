@@ -645,7 +645,7 @@ void SceneManager::RenderScene()
 
 	/*** Creating the stick for the press ***/
 	CreateObject(
-		pos[0], pos[1], pos[2] + 90.0f, 
+		pos[0], pos[1], pos[2], 
 		0.055f, 1.2f, 0.055f,
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		1.0f, 1.0f,
