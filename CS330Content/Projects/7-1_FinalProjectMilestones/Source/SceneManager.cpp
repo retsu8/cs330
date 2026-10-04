@@ -644,7 +644,7 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawTorusMesh();
 
 	/*** Creating the stick for the press ***/
-	CreateObject(dw
+	CreateObject(
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.055f, 0.8f, 0.055f,
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
