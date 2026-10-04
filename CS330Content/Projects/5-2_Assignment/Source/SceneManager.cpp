@@ -400,12 +400,12 @@ void SceneManager::LoadSceneTextures()
 
 	// The stone for the floor
 	bReturn = CreateGLTexture(
-		"textures/stone.jpg",
+		"textures/stone.png",
 		"stone");
 	
 	// The wood for the board 
 	bReturn = CreateGLTexture(
-		"../textures/wood.jpg",
+		"textures/wood.jpg",
 		"wood");	
 
 	// Creating a marble ball
