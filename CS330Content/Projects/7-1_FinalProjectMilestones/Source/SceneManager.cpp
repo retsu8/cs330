@@ -614,9 +614,11 @@ void SceneManager::RenderScene()
 		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
 		5.0f, 1.0f,
 		"steel_up", "metal");
+	// For the sides of the cylinder
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
+	// For the ends of cylinder
 	m_basicMeshes->DrawCylinderMesh(true, true, false);
 
 	/*** Creating the handle going out from the cylinder  ***/
@@ -636,9 +638,11 @@ void SceneManager::RenderScene()
 		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
 		5.0f, 1.0f,
 		"steel_up", "metal");
+	// For the sides of the cylinder
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
+	// For the ends of cylinder
 	m_basicMeshes->DrawCylinderMesh(true, true, false);
 
 
@@ -646,7 +650,7 @@ void SceneManager::RenderScene()
 	CreateObject(
 		pos[0] + 90, pos[1], pos[2], 
 		0.90f, .90f, 0.5f, 
-		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
+		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],s
 		0.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawTorusMesh();
@@ -658,9 +662,11 @@ void SceneManager::RenderScene()
 		coffee_pos[0], coffee_pos[1]+4.2f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");	
+	// For the sides of the cylinder
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
+	// For the ends of cylinder
 	m_basicMeshes->DrawCylinderMesh(true, true, false);
 
 
@@ -671,9 +677,11 @@ void SceneManager::RenderScene()
 		coffee_pos[0], coffee_pos[1]+5.1f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
+	// For the sides of the cylinder
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
+	// For the ends of cylinder
 	m_basicMeshes->DrawCylinderMesh(true, true, false);
 
 
