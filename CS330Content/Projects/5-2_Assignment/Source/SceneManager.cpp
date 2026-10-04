@@ -400,32 +400,32 @@ void SceneManager::LoadSceneTextures()
 
 	// The stone for the floor
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/stone.png",
+		"../textures/stone.png",
 		"stone");
 	
 	// The wood for the board 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/wood.jpg",
+		"../textures/wood.jpg",
 		"wood");	
 
 	// Creating a marble ball
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/marble.jpg",
+		"../textures/marble.jpg",
 		"marble");
 
 	// created a cheese block to
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/cheese.jpg",
+		"../textures/cheese.jpg",
 		"cheese");
 
 	// Creating a steel cone
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/steel.jpg",
+		"../textures/steel.jpg",
 		"steel");
 
 	// Build an abstract cylinder
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/plugab.jpg",
+		"../textures/plugab.jpg",
 		"plugab");
 
 	// after the texture image data is loaded into memory, the
