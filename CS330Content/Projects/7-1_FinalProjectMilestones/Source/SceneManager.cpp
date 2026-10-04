@@ -617,7 +617,7 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh(true, false, true);
+	m_basicMeshes->DrawCylinderMesh(true, true, false);
 
 	/*** Creating the handle going out from the cylinder  ***/
 	CreateObject(
@@ -629,7 +629,8 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh(true, false, true);
+	m_basicMeshes->DrawCylinderMesh(true, true, false);
+
 
 	/*** Creating the handle going down from the cylinder  ***/
 	CreateObject(
@@ -641,7 +642,8 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh(true, false, true);
+	m_basicMeshes->DrawCylinderMesh(true, true, false);
+
 
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
@@ -662,7 +664,8 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh(true, false, true);
+	m_basicMeshes->DrawCylinderMesh(true, true, false);
+
 
 	/*** Creating the second press stick top for the press ***/
 	CreateObject(
@@ -674,7 +677,8 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh(true, false, true);
+	m_basicMeshes->DrawCylinderMesh(true, true, false);
+
 
 	/*** Adding the spout ***/
 	CreateObject(
