@@ -647,19 +647,12 @@ void SceneManager::RenderScene()
 	CreateObject(
 		pos[0], pos[1], pos[2], 
 		0.055f, 1.2f, 0.055f,
-		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
+		coffee_pos[0], coffee_pos[1]+3.7f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
-	/*** Creating the stick top for the press ***/
-	CreateObject(
-		pos[0], pos[1], pos[2], 
-		0.075f, 0.325f, 0.075f,
-		coffee_pos[0], coffee_pos[1]+4.9, coffee_pos[2],
-		1.0f, 1.0f,
-		"steel_up", "metal");
-	m_basicMeshes->DrawCylinderMesh();
+
 
 	/*** Creating the second press stick top for the press ***/
 	CreateObject(
