@@ -510,8 +510,8 @@ void SceneManager::LoadSceneTextures()
 		"window");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/breadcrust.jpg",
-		"breadcrust");
+		"../../Utilities/textures/wield.jpg",
+		"wield");
 
 	bReturn = CreateGLTexture(
 		"../../Utilities/textures/backdrop.jpg",
@@ -621,8 +621,10 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.2f, 1.0f, 0.3f, 
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
-		1.0f, 1.0f,
+		0.5f, 1.0f,
 		"steel_up", "metal");
+	SetShaderTexture("wield");
+	SetTextureUVScale(0.0f, 0.5f);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the handle going down from the cylinder  ***/
