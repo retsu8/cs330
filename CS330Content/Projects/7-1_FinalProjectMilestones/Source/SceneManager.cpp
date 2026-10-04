@@ -637,7 +637,7 @@ void SceneManager::RenderScene()
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
 		pos[0] + 90, pos[1], pos[2], 
-		1.0f, 1.0f, 0.5f, 
+		0.85f, .85f, 0.5f, 
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
