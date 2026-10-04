@@ -522,8 +522,8 @@ void SceneManager::LoadSceneTextures()
 		"knifehandle");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/stainless.jpg",
-		"stainless");
+		"../../Utilities/textures/stainless_end.jpg",
+		"stainless_end");
 
 	bReturn = CreateGLTexture(
 		"../../Utilities/textures/cheddar.jpg",
@@ -624,7 +624,7 @@ void SceneManager::RenderScene()
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
 		0.8f, 1.0f,
 		"steel_up", "metal");
-	SetShaderTexture("wield");
+	SetShaderTexture("stainless_end");
 	SetTextureUVScale(0.0f, 0.2f);
 	m_basicMeshes->DrawCylinderMesh();
 
