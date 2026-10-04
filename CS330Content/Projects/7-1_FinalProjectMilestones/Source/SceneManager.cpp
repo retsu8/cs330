@@ -629,7 +629,7 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 
 
-	/*** Creating the handle going down from the cylinder  ***/dw
+	/*** Creating the handle going down from the cylinder  ***/
 	CreateObject(
 		pos[0], pos[1], pos[2], 
 		0.35f, 1.4f, 0.3f, 
