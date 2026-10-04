@@ -498,39 +498,39 @@ void SceneManager::LoadSceneTextures()
 	bool bReturn = false;
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/base_coffee.jpg",
+		"textures/base_coffee.jpg",
 		"steel_up");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/counter.jpg",
+		"textures/counter.jpg",
 		"counter");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/window.jpg",
+		"textures/window.jpg",
 		"window");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/wield.jpg",
+		"textures/wield.jpg",
 		"wield");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/backdrop.jpg",
+		"textures/backdrop.jpg",
 		"backdrop");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/knife_handle.jpg",
+		"textures/knife_handle.jpg",
 		"knifehandle");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/stainless_end.jpg",
+		"textures/stainless_end.jpg",
 		"stainless_end");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/cheddar.jpg",
+		".textures/cheddar.jpg",
 		"cheddar");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/circular-brushed-gold-texture.jpg",
+		".textures/circular-brushed-gold-texture.jpg",
 		"knifescrew");
 
 	// after the texture image data is loaded into memory, the
