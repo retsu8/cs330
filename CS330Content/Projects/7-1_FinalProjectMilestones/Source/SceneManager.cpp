@@ -637,16 +637,16 @@ void SceneManager::RenderScene()
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
 		pos[0] + 90, pos[1], pos[2], 
-		0.85f, .85f, 0.5f, 
+		0.90f, .90f, 0.5f, 
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawTorusMesh();
 
 	/*** Creating the stick for the press ***/
-	CreateObject(
+	CreateObject(dw
 		pos[0], pos[1], pos[2] + 90.0f, 
-		0.055f, 0.5f, 0.055f,
+		0.055f, 0.8f, 0.055f,
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
