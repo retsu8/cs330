@@ -661,10 +661,7 @@ void SceneManager::RenderScene()
 	SetShaderTexture("wood");
 	SetTextureUVScale(3.0, 0.5);
 	SetShaderMaterial("wood");
-	m_basicMeshes->DrawBoxMesh(false, false, true);
-	SetShaderTexture("wood");
-	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawBoxMesh(true, true, false);
+	m_basicMeshes->DrawBoxMesh();
 
 	/****************************************************************/
 
