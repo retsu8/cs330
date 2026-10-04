@@ -606,7 +606,7 @@ void SceneManager::RenderScene()
 		1.0f, 1.0f,
 		"window", "backdrop");
 	m_basicMeshes->DrawPlaneMesh();
-
+dw
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
 	CreateObject(
 		pos[0], pos[1], pos[2], 
@@ -648,7 +648,7 @@ void SceneManager::RenderScene()
 		0.90f, .90f, 0.5f, 
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		1.0f, 1.0f,
-		"steel_up", "metal");
+		"stainless_end", "metal");
 	m_basicMeshes->DrawTorusMesh();
 
 	/*** Creating the stick for the press ***/
