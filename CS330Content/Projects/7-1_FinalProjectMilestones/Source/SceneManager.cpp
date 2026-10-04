@@ -643,7 +643,7 @@ void SceneManager::RenderScene()
 		"steel_up", "metal");
 	m_basicMeshes->DrawTorusMesh();
 
-dwwww	/*** Creating the stick for the press ***/
+	/*** Creating the stick for the press ***/
 	CreateObject(
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.055f, 0.5f, 0.055f,
