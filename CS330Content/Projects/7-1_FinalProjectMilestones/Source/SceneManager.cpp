@@ -502,7 +502,7 @@ void SceneManager::LoadSceneTextures()
 		"steel_up");
 
 	bReturn = CreateGLTexture(
-		"../../Utilities/textures/counter.avif",
+		"../../Utilities/textures/counter.jpg",
 		"counter");
 
 	bReturn = CreateGLTexture(

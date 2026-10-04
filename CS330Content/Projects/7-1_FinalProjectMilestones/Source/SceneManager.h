@@ -104,12 +104,12 @@ private:
 	void DefineObjectMaterials();
 
 	// Create object for easier use
-	void SceneManager::CreateObject(
+	void CreateObject(
 		float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
 		float xscale, float yscale, float zscale,
 		float Xposition, float Yposition, float Zposition,
 		float scale_u, float scale_v,
-		std::string texture, std::string material)
+		std::string texture, std::string material);
 
 public:
 
