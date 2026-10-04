@@ -619,7 +619,7 @@ void SceneManager::RenderScene()
 	/*** Creating the handle going out from the cylinder  ***/
 	CreateObject(
 		pos[0], pos[1], pos[2] + 90.0f, 
-		0.3f, 1.0f, 0.3f, 
+		0.15f, 1.0f, 0.3f, 
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
