@@ -619,8 +619,7 @@ void SceneManager::RenderScene()
 	/*** Creating the handle going out from the cylinder  ***/
 	CreateObject(
 		pos[0], pos[1], pos[2] + 90.0f, 
-		//0.2f, 1.0f, 0.3f, 
-		0.2f, 0.5f, 0.3f, 
+		0.2f, 1.0f, 0.3f, 
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
 		0.0f, 1.0f,
 		"steel_up", "metal");
@@ -631,10 +630,10 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.35f, 1.4f, 0.3f, 
 		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
-		0.8f, 1.0f,
+		5.0f, 1.0f,
 		"steel_up", "metal");
 	SetShaderTexture("stainless_end");
-	SetTextureUVScale(0.0f, 0.2f);
+	SetTextureUVScale(1.0f, 1.0f);
 	m_basicMeshes->DrawCylinderMesh();
 
 	/*** Creating the torus for the lid  ***/
