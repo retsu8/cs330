@@ -674,7 +674,7 @@ void SceneManager::RenderScene()
 	CreateObject(
 		pos[0]+180, pos[1], pos[2],
 		1.2f, 0.5f, 0.7f,
-		coffee_pos[0] + 0.5f, coffee_pos[1] + 4.5f, coffee_pos[2],dwwwwwww
+		coffee_pos[0] + 0.5f, coffee_pos[1] + 4.5f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawTaperedCylinderMesh();
