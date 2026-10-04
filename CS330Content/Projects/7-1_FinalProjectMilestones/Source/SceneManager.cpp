@@ -614,7 +614,10 @@ void SceneManager::RenderScene()
 		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
 		1.0f, -1.0f,
 		"steel_up", "metal");
-	m_basicMeshes->DrawCylinderMesh();
+	m_basicMeshes->DrawCylinderMesh(false, false, true);
+	SetShaderTexture("stainless_end");
+	SetTextureUVScale(1.0f, 1.0f);
+	m_basicMeshes->DrawCylinderMesh(true, false, true);
 
 	/*** Creating the handle going out from the cylinder  ***/
 	CreateObject(
@@ -623,7 +626,10 @@ void SceneManager::RenderScene()
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
 		0.0f, 1.0f,
 		"steel_up", "metal");
-	m_basicMeshes->DrawCylinderMesh();
+	m_basicMeshes->DrawCylinderMesh(false, false, true);
+	SetShaderTexture("stainless_end");
+	SetTextureUVScale(1.0f, 1.0f);
+	m_basicMeshes->DrawCylinderMesh(true, false, true);
 
 	/*** Creating the handle going down from the cylinder  ***/
 	CreateObject(
@@ -635,7 +641,7 @@ void SceneManager::RenderScene()
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh(true, false, false);
+	m_basicMeshes->DrawCylinderMesh(true, false, true);
 
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
@@ -652,8 +658,11 @@ void SceneManager::RenderScene()
 		0.055f, 1.0f, 0.055f,
 		coffee_pos[0], coffee_pos[1]+4.2f, coffee_pos[2],
 		1.0f, 1.0f,
-		"steel_up", "metal");
-	m_basicMeshes->DrawCylinderMesh();
+		"steel_up", "metal");	
+	m_basicMeshes->DrawCylinderMesh(false, false, true);
+	SetShaderTexture("stainless_end");
+	SetTextureUVScale(1.0f, 1.0f);
+	m_basicMeshes->DrawCylinderMesh(true, false, true);
 
 	/*** Creating the second press stick top for the press ***/
 	CreateObject(
@@ -662,7 +671,10 @@ void SceneManager::RenderScene()
 		coffee_pos[0], coffee_pos[1]+5.1f, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
-	m_basicMeshes->DrawCylinderMesh();
+	m_basicMeshes->DrawCylinderMesh(false, false, true);
+	SetShaderTexture("stainless_end");
+	SetTextureUVScale(1.0f, 1.0f);
+	m_basicMeshes->DrawCylinderMesh(true, false, true);
 
 	/*** Adding the spout ***/
 	CreateObject(
