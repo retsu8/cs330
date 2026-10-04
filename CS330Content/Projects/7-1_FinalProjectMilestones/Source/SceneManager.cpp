@@ -624,12 +624,9 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.2f, 1.0f, 0.3f, 
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
-		0.0f, 1.0f,
+		1.0f, 0.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
-	SetShaderTexture("stainless_end");
-	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh(true, true, false);
 
 
 	/*** Creating the handle going down from the cylinder  ***/
