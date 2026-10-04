@@ -640,7 +640,7 @@ void SceneManager::RenderScene()
 		0.90f, .90f, 0.5f, 
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
 		1.0f, 1.0f,
-		"steel_up", "metal");w
+		"steel_up", "metal");
 	m_basicMeshes->DrawTorusMesh();
 
 	/*** Creating the stick for the press ***/
@@ -651,8 +651,6 @@ void SceneManager::RenderScene()
 		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
-
-
 
 	/*** Creating the second press stick top for the press ***/
 	CreateObject(
