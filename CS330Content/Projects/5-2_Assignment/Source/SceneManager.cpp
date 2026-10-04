@@ -400,7 +400,7 @@ void SceneManager::LoadSceneTextures()
 
 	// The stone for the floor
 	bReturn = CreateGLTexture(
-		"/textures/stone.png",
+		"textures/stone.png",
 		"stone");
 	
 	// The wood for the board 
