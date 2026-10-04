@@ -652,14 +652,15 @@ void SceneManager::RenderScene()
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
-	/*** Creating the second press stick top for the press ***/
+	/*** Creating the stick top for the press ***/
 	CreateObject(
 		pos[0], pos[1], pos[2], 
-		0.25f, 0.125f, 0.25f,
-		coffee_pos[0], coffee_pos[1]+5.1f, coffee_pos[2],
+		0.075f, 0.325f, 0.075f,
+		coffee_pos[0], coffee_pos[1]+4.9, coffee_pos[2],
 		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
+
 
 	/*** Adding the spout ***/
 	CreateObject(
