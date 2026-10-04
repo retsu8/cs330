@@ -634,7 +634,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.35f, 1.4f, 0.3f, 
 		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
-		5.0f, 1.0f,sd
+		5.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
