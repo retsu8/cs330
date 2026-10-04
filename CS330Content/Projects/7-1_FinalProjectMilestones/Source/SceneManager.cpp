@@ -549,7 +549,7 @@ void SceneManager::CreateObject(
 	float XrotationDegrees, float YrotationDegrees, float ZrotationDegrees,
 	float xscale, float yscale, float zscale,
 	float Xposition, float Yposition, float Zposition,
-	float color1, float color2, float color3, float color4,
+	float scale_u, float scale_v,
 	std::string texture, std::string material)
 {
 	// declare the variables for the transformations
@@ -572,9 +572,8 @@ void SceneManager::CreateObject(
 		ZrotationDegrees,
 		positionXYZ);
 
-	//SetShaderColor(color1, color2, color3, color4);
 	SetShaderTexture(texture);
-	SetTextureUVScale(1.0, 1.0);
+	SetTextureUVScale(scale_u, scale_v);
 	SetShaderMaterial(material);
 }
 
@@ -595,7 +594,7 @@ void SceneManager::RenderScene()
 	CreateObject(pos[0], pos[1], pos[2],
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 0.0f, 0.0f, 
-		1.0f, 1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f,
 		"counter", "backdrop");
 	m_basicMeshes->DrawPlaneMesh();
 
@@ -604,7 +603,7 @@ void SceneManager::RenderScene()
 		pos[0] + 90, pos[1], pos[2], 
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 9.0f, -10.0f, 
-		1.0f, 1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f,
 		"window", "backdrop");
 	m_basicMeshes->DrawPlaneMesh();
 
@@ -613,7 +612,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		1.1f, 4.7f, 1.0f, 
 		coffee_pos[0], coffee_pos[1], coffee_pos[2], 
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
@@ -622,7 +621,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.3f, 1.2f, 0.3f, 
 		coffee_pos[0] - 1, coffee_pos[1] + 3.8f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
@@ -631,7 +630,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.35f, 1.4f, 0.3f, 
 		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
@@ -640,7 +639,7 @@ void SceneManager::RenderScene()
 		pos[0] + 90, pos[1], pos[2], 
 		1.0f, 0.5f, 0.5f, 
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawTorusMesh();
 
@@ -649,7 +648,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2] + 90.0f, 
 		0.055f, 0.5f, 0.055f,
 		coffee_pos[0], coffee_pos[1]+4.7f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
@@ -658,7 +657,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.075f, 0.325f, 0.075f,
 		coffee_pos[0], coffee_pos[1]+4.9, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
@@ -667,7 +666,7 @@ void SceneManager::RenderScene()
 		pos[0], pos[1], pos[2], 
 		0.25f, 0.125f, 0.25f,
 		coffee_pos[0], coffee_pos[1]+5.1f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawCylinderMesh();
 
@@ -676,7 +675,7 @@ void SceneManager::RenderScene()
 		pos[0]+180, pos[1], pos[2],
 		1.2f, 0.5f, 1.0f,
 		coffee_pos[0] + 0.5f, coffee_pos[1] + 4.5f, coffee_pos[2],
-		coffee_color[0], coffee_color[1], coffee_color[2], coffee_color[3],
+		1.0f, 1.0f,
 		"steel_up", "metal");
 	m_basicMeshes->DrawTaperedCylinderMesh();
 }
