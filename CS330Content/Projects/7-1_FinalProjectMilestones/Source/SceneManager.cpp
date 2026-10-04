@@ -632,9 +632,10 @@ void SceneManager::RenderScene()
 		coffee_pos[0] - 2, coffee_pos[1] + 2.8f, coffee_pos[2],
 		5.0f, 1.0f,
 		"steel_up", "metal");
+	m_basicMeshes->DrawCylinderMesh(false, false, true);
 	SetShaderTexture("stainless_end");
 	SetTextureUVScale(1.0f, 1.0f);
-	m_basicMeshes->DrawCylinderMesh();
+	m_basicMeshes->DrawCylinderMesh(true, false, false);
 
 	/*** Creating the torus for the lid  ***/
 	CreateObject(
