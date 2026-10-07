@@ -221,7 +221,7 @@ void SceneManager::DefineObjectMaterials()
 	woodMaterial.shininess = 0.3;
 	woodMaterial.tag = "wood";
 	m_objectMaterials.push_back(woodMaterial);
-	OBJECT_MATERIAL �leMaterial;
+	OBJECT_MATERIAL tileMaterial;
 	tileMaterial.ambientColor = glm::vec3(0.2f, 0.3f, 0.4f);
 	tileMaterial.ambientStrength = 0.3f;
 	tileMaterial.diffuseColor = glm::vec3(0.3f, 0.2f, 0.1f);
@@ -326,179 +326,123 @@ void SceneManager::RenderScene()
 	float YrotationDegrees = 0.0f;
 	float ZrotationDegrees = 0.0f;
 	glm::vec3 positionXYZ;
-
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
+	glm::mat4 scale;
+	glm::mat4 rotation;
+	glm::mat4 rotation2;
+	glm::mat4 translation;
+	glm::mat4 model;
+	/*** Set needed transformations before drawing the basic mesh ***/
 	// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
-
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 0.0f;
-
 	// set the XYZ position for the mesh
 	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
-
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	// set the active color values in the shader (RGBA)
-	SetShaderColor(1, 1, 1, 1);
-
+	scaleXYZ,
+	XrotationDegrees,
+	YrotationDegrees,
+	ZrotationDegrees,
+	positionXYZ);
+	//SetShaderColor(1, 1, 1, 1);
+	SetShaderTexture("floor");
+	SetShaderMaterial("cement");
 	// draw the mesh with transformation values - this plane is used for the base
 	m_basicMeshes->DrawPlaneMesh();
-	/****************************************************************/
-
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(0.9f, 2.8f, 0.9f);
-
+	/*** Set needed transformations before drawing the basic mesh ***/
+	scaleXYZ = glm::vec3(0.9f, 2.5f, 0.9f);
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 90.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = -15.0f;
-
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.0f, 0.9f, 0.4f);
-
+	positionXYZ = glm::vec3(0.0f, 0.9f, 0.0f);
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	// set the active color values in the shader (RGBA)
-	SetShaderColor(1, 1, 1, 1);
-
-	m_basicMeshes->DrawCylinderMesh();
-	/****************************************************************/
-
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(1.0f, 9.0f, 1.3f);
-
+	scaleXYZ,
+	XrotationDegrees,
+	YrotationDegrees,
+	ZrotationDegrees,
+	positionXYZ);
+	//SetShaderColor(1, 0, 0, 1);
+	SetShaderTexture("cylinder");
+	SetShaderMaterial("gold");
+	m_basicMeshes->DrawCylinderMesh(false, false);
+	SetShaderTexture("cylinder_top");
+	m_basicMeshes->DrawCylinderMesh(true, true, false);
+	scaleXYZ = glm::vec3(0.9f, 9.0f, 1.2f);
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 95.0f;
-
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(0.2f, 2.27f, 2.0f);
-
+	positionXYZ = glm::vec3(0.2f, 2.25f, 1.4f);
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	// set the active color values in the shader (RGBA)
-	SetShaderColor(1, 1, 1, 1);
-
+	scaleXYZ,
+	XrotationDegrees,
+	YrotationDegrees,
+	ZrotationDegrees,
+	positionXYZ);
+	//SetShaderColor(0, 0, 1, 1);
+	SetShaderTexture("plank");
+	SetShaderMaterial("wood");
 	m_basicMeshes->DrawBoxMesh();
-	/****************************************************************/
-
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
-	scaleXYZ = glm::vec3(1.7f, 1.5f, 1.5f);
-
+	scaleXYZ = glm::vec3(1.3f, 1.1f, 1.3f);
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
-	YrotationDegrees = 40.0f;
-	ZrotationDegrees = 8.0f;
-
+	YrotationDegrees = 48.0f;
+	ZrotationDegrees = 0.0f;
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(3.3f, 3.85f, 2.19f);
-
+	positionXYZ = glm::vec3(3.5f, 3.55f, 1.3f);
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	// set the active color values in the shader (RGBA)
-	SetShaderColor(1, 1, 1, 1);
-
+	scaleXYZ,
+	XrotationDegrees,
+	YrotationDegrees,
+	ZrotationDegrees,
+	positionXYZ);
+	//SetShaderColor(1, 0, 1, 1);
+	SetShaderTexture("box");
+	SetShaderMaterial("tile");
 	m_basicMeshes->DrawBoxMesh();
-	/****************************************************************/
-
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(1.0f, 1.0f, 1.0f);
-
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 0.0f;
-
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(3.2f, 5.6f, 2.5f);
-
+	positionXYZ = glm::vec3(3.5f, 5.10f, 1.3f);
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	// set the active color values in the shader (RGBA)
-	SetShaderColor(1, 1, 1, 1);
-
+	scaleXYZ,
+	XrotationDegrees,
+	YrotationDegrees,
+	ZrotationDegrees,
+	positionXYZ);
+	//SetShaderColor(1, 1, 0, 1);
+	SetShaderTexture("ball");
+	SetShaderMaterial("glass");
 	m_basicMeshes->DrawSphereMesh();
-	/****************************************************************/
-
-	/*** Set needed transformations before drawing the basic mesh.  ***/
-	/*** This same ordering of code should be used for transforming ***/
-	/*** and drawing all the basic 3D shapes.						***/
-	/******************************************************************/
-	// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(1.2f, 4.0f, 1.2f);
-
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 5.0f;
-
 	// set the XYZ position for the mesh
-	positionXYZ = glm::vec3(-3.3f, 2.50f, 2.0f);
-
+	positionXYZ = glm::vec3(-3.2f, 2.48f, 1.4f);
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-		scaleXYZ,
-		XrotationDegrees,
-		YrotationDegrees,
-		ZrotationDegrees,
-		positionXYZ);
-
-	// set the active color values in the shader (RGBA)
-	SetShaderColor(1, 1, 1, 1);
-
+	scaleXYZ,
+	XrotationDegrees,
+	YrotationDegrees,
+	ZrotationDegrees,
+	positionXYZ);
+	//SetShaderColor(0, 1, 0, 1);
+	SetShaderTexture("cone");
+	SetShaderMaterial("clay");
 	m_basicMeshes->DrawConeMesh();
-	/****************************************************************/
 }
