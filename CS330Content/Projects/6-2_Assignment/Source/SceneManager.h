@@ -87,6 +87,8 @@ private:
 		float greenColorValue,
 		float blueColorValue,
 		float alphaValue);
+	int FindTextureSlot(
+		std::string tag);
 
 public:
 
