@@ -152,6 +152,51 @@ void SceneManager::SetShaderColor(
 }
 
 /***********************************************************
+ *  FindTextureSlot()
+ *
+ *  This method is used for getting a slot index for the previously
+ *  loaded texture bitmap associated with the passed in tag.
+ ***********************************************************/
+int SceneManager::FindTextureSlot(std::string tag)
+{
+	int textureSlot = -1;
+	int index = 0;
+	bool bFound = false;
+
+	while ((index < m_loadedTextures) && (bFound == false))
+	{
+		if (m_textureIDs[index].tag.compare(tag) == 0)
+		{
+			textureSlot = index;
+			bFound = true;
+		}
+		else
+			index++;
+	}
+
+	return(textureSlot);
+}
+
+/***********************************************************
+ *  SetShaderTexture()
+ *
+ *  This method is used for setting the texture data
+ *  associated with the passed in ID into the shader.
+ ***********************************************************/
+void SceneManager::SetShaderTexture(
+	std::string textureTag)
+{
+	if (NULL != m_pShaderManager)
+	{
+		m_pShaderManager->setIntValue(g_UseTextureName, true);
+
+		int textureID = -1;
+		textureID = FindTextureSlot(textureTag);
+		m_pShaderManager->setSampler2DValue(g_TextureValueName, textureID);
+	}
+}
+
+/***********************************************************
  *  SetShaderMaterial()
  *
  *  This method is used for passing the material values

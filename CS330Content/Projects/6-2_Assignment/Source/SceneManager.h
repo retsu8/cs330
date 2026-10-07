@@ -80,6 +80,13 @@ private:
 	// set the object material into the shader
 	void SetShaderMaterial(
 		std::string materialTag);
+	void SetShaderTexture(
+		std::string textureTag);
+	void SetShaderColor(
+		float redColorValue,
+		float greenColorValue,
+		float blueColorValue,
+		float alphaValue);
 
 public:
 
