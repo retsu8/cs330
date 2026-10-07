@@ -60,6 +60,7 @@ private:
 
 	// retrieve defined material by tag
 	bool FindMaterial(std::string tag, OBJECT_MATERIAL& material);
+	void LoadSceneTextures();
 
 	// set the transformation values 
 	// into the transform buffer

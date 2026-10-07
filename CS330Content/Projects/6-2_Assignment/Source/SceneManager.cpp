@@ -249,7 +249,9 @@ void SceneManager::DefineObjectMaterials()
 	goldMaterial.specularColor = glm::vec3(0.6f, 0.5f, 0.4f);
 	goldMaterial.shininess = 22.0;
 	goldMaterial.tag = "gold";
+
 	m_objectMaterials.push_back(goldMaterial);
+
 	OBJECT_MATERIAL cementMaterial;
 	cementMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
 	cementMaterial.ambientStrength = 0.2f;
@@ -257,7 +259,9 @@ void SceneManager::DefineObjectMaterials()
 	cementMaterial.specularColor = glm::vec3(0.4f, 0.4f, 0.4f);
 	cementMaterial.shininess = 0.5;
 	cementMaterial.tag = "cement";
+
 	m_objectMaterials.push_back(cementMaterial);
+
 	OBJECT_MATERIAL woodMaterial;
 	woodMaterial.ambientColor = glm::vec3(0.4f, 0.3f, 0.1f);
 	woodMaterial.ambientStrength = 0.2f;
@@ -265,7 +269,9 @@ void SceneManager::DefineObjectMaterials()
 	woodMaterial.specularColor = glm::vec3(0.1f, 0.1f, 0.1f);
 	woodMaterial.shininess = 0.3;
 	woodMaterial.tag = "wood";
+
 	m_objectMaterials.push_back(woodMaterial);
+
 	OBJECT_MATERIAL tileMaterial;
 	tileMaterial.ambientColor = glm::vec3(0.2f, 0.3f, 0.4f);
 	tileMaterial.ambientStrength = 0.3f;
@@ -273,7 +279,9 @@ void SceneManager::DefineObjectMaterials()
 	tileMaterial.specularColor = glm::vec3(0.4f, 0.5f, 0.6f);
 	tileMaterial.shininess = 25.0;
 	tileMaterial.tag = "tile";
+
 	m_objectMaterials.push_back(tileMaterial);
+
 	OBJECT_MATERIAL glassMaterial;
 	glassMaterial.ambientColor = glm::vec3(0.4f, 0.4f, 0.4f);
 	glassMaterial.ambientStrength = 0.3f;
@@ -281,7 +289,9 @@ void SceneManager::DefineObjectMaterials()
 	glassMaterial.specularColor = glm::vec3(0.6f, 0.6f, 0.6f);
 	glassMaterial.shininess = 85.0;
 	glassMaterial.tag = "glass";
+
 	m_objectMaterials.push_back(glassMaterial);
+
 	OBJECT_MATERIAL clayMaterial;
 	clayMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.3f);
 	clayMaterial.ambientStrength = 0.3f;
@@ -289,9 +299,61 @@ void SceneManager::DefineObjectMaterials()
 	clayMaterial.specularColor = glm::vec3(0.2f, 0.2f, 0.4f);
 	clayMaterial.shininess = 0.5;
 	clayMaterial.tag = "clay";
+
 	m_objectMaterials.push_back(clayMaterial);
 }
 
+ /***********************************************************
+  *  LoadSceneTextures()
+  *
+  *  This method is used for preparing the 3D scene by loading
+  *  the shapes, textures in memory to support the 3D scene
+  *  rendering
+  ***********************************************************/
+void SceneManager::LoadSceneTextures()
+{
+	/*** STUDENTS - add the code BELOW for loading the textures that ***/
+	/*** will be used for mapping to objects in the 3D scene. Up to  ***/
+	/*** 16 textures can be loaded per scene. Refer to the code in   ***/
+	/*** the OpenGL Sample for help.                                 ***/
+
+	bool bReturn = false;
+
+	// The stone for the floor
+	bReturn = CreateGLTexture(
+		"textures/stone.png",
+		"stone");
+	
+	// The wood for the board 
+	bReturn = CreateGLTexture(
+		"textures/wood.jpg",
+		"wood");	
+
+	// Creating a marble ball
+	bReturn = CreateGLTexture(
+		"textures/marble.jpg",
+		"marble");
+
+	// created a cheese block to
+	bReturn = CreateGLTexture(
+		"textures/cheese.jpg",
+		"cheese");
+
+	// Creating a steel cone
+	bReturn = CreateGLTexture(
+		"textures/steel.jpg",
+		"steel");
+
+	// Build an abstract cylinder
+	bReturn = CreateGLTexture(
+		"textures/plugab.jpg",
+		"plugab");
+
+	// after the texture image data is loaded into memory, the
+	// loaded textures need to be bound to texture slots - there
+	// are a total of 16 available slots for scene textures
+	BindGLTextures();
+}
 /***********************************************************
  *  SetupSceneLights()
  *
@@ -371,47 +433,59 @@ void SceneManager::RenderScene()
 	float YrotationDegrees = 0.0f;
 	float ZrotationDegrees = 0.0f;
 	glm::vec3 positionXYZ;
+
 	glm::mat4 scale;
 	glm::mat4 rotation;
 	glm::mat4 rotation2;
 	glm::mat4 translation;
 	glm::mat4 model;
+
 	/*** Set needed transformations before drawing the basic mesh ***/
+
 	// set the XYZ scale for the mesh
 	scaleXYZ = glm::vec3(20.0f, 1.0f, 10.0f);
+
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 0.0f;
+
 	// set the XYZ position for the mesh
 	positionXYZ = glm::vec3(0.0f, 0.0f, 0.0f);
+
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-	scaleXYZ,
-	XrotationDegrees,
-	YrotationDegrees,
-	ZrotationDegrees,
-	positionXYZ);
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
+
 	//SetShaderColor(1, 1, 1, 1);
 	SetShaderTexture("floor");
 	SetShaderMaterial("cement");
+
 	// draw the mesh with transformation values - this plane is used for the base
 	m_basicMeshes->DrawPlaneMesh();
+
 	/*** Set needed transformations before drawing the basic mesh ***/
 	scaleXYZ = glm::vec3(0.9f, 2.5f, 0.9f);
+
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 90.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = -15.0f;
+
 	// set the XYZ position for the mesh
 	positionXYZ = glm::vec3(0.0f, 0.9f, 0.0f);
+
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
-	scaleXYZ,
-	XrotationDegrees,
-	YrotationDegrees,
-	ZrotationDegrees,
-	positionXYZ);
+		scaleXYZ,
+		XrotationDegrees,
+		YrotationDegrees,
+		ZrotationDegrees,
+		positionXYZ);
 	//SetShaderColor(1, 0, 0, 1);
 	SetShaderTexture("cylinder");
 	SetShaderMaterial("gold");
@@ -419,12 +493,15 @@ void SceneManager::RenderScene()
 	SetShaderTexture("cylinder_top");
 	m_basicMeshes->DrawCylinderMesh(true, true, false);
 	scaleXYZ = glm::vec3(0.9f, 9.0f, 1.2f);
+
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
 	YrotationDegrees = 0.0f;
 	ZrotationDegrees = 95.0f;
+
 	// set the XYZ position for the mesh
 	positionXYZ = glm::vec3(0.2f, 2.25f, 1.4f);
+
 	// set the transformations into memory to be used on the drawn meshes
 	SetTransformations(
 	scaleXYZ,
