@@ -197,9 +197,54 @@ void SceneManager::DefineObjectMaterials()
 	/*** STUDENTS - add the code BELOW for defining object materials. ***/
 	/*** There is no limit to the number of object materials that can ***/
 	/*** be defined. Refer to the code in the OpenGL Sample for help  ***/
-
-	
-
+	OBJECT_MATERIAL goldMaterial;
+	goldMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.1f);
+	goldMaterial.ambientStrength = 0.4f;
+	goldMaterial.diffuseColor = glm::vec3(0.3f, 0.3f, 0.2f);
+	goldMaterial.specularColor = glm::vec3(0.6f, 0.5f, 0.4f);
+	goldMaterial.shininess = 22.0;
+	goldMaterial.tag = "gold";
+	m_objectMaterials.push_back(goldMaterial);
+	OBJECT_MATERIAL cementMaterial;
+	cementMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	cementMaterial.ambientStrength = 0.2f;
+	cementMaterial.diffuseColor = glm::vec3(0.5f, 0.5f, 0.5f);
+	cementMaterial.specularColor = glm::vec3(0.4f, 0.4f, 0.4f);
+	cementMaterial.shininess = 0.5;
+	cementMaterial.tag = "cement";
+	m_objectMaterials.push_back(cementMaterial);
+	OBJECT_MATERIAL woodMaterial;
+	woodMaterial.ambientColor = glm::vec3(0.4f, 0.3f, 0.1f);
+	woodMaterial.ambientStrength = 0.2f;
+	woodMaterial.diffuseColor = glm::vec3(0.3f, 0.2f, 0.1f);
+	woodMaterial.specularColor = glm::vec3(0.1f, 0.1f, 0.1f);
+	woodMaterial.shininess = 0.3;
+	woodMaterial.tag = "wood";
+	m_objectMaterials.push_back(woodMaterial);
+	OBJECT_MATERIAL �leMaterial;
+	tileMaterial.ambientColor = glm::vec3(0.2f, 0.3f, 0.4f);
+	tileMaterial.ambientStrength = 0.3f;
+	tileMaterial.diffuseColor = glm::vec3(0.3f, 0.2f, 0.1f);
+	tileMaterial.specularColor = glm::vec3(0.4f, 0.5f, 0.6f);
+	tileMaterial.shininess = 25.0;
+	tileMaterial.tag = "tile";
+	m_objectMaterials.push_back(tileMaterial);
+	OBJECT_MATERIAL glassMaterial;
+	glassMaterial.ambientColor = glm::vec3(0.4f, 0.4f, 0.4f);
+	glassMaterial.ambientStrength = 0.3f;
+	glassMaterial.diffuseColor = glm::vec3(0.3f, 0.3f, 0.3f);
+	glassMaterial.specularColor = glm::vec3(0.6f, 0.6f, 0.6f);
+	glassMaterial.shininess = 85.0;
+	glassMaterial.tag = "glass";
+	m_objectMaterials.push_back(glassMaterial);
+	OBJECT_MATERIAL clayMaterial;
+	clayMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.3f);
+	clayMaterial.ambientStrength = 0.3f;
+	clayMaterial.diffuseColor = glm::vec3(0.4f, 0.4f, 0.5f);
+	clayMaterial.specularColor = glm::vec3(0.2f, 0.2f, 0.4f);
+	clayMaterial.shininess = 0.5;
+	clayMaterial.tag = "clay";
+	m_objectMaterials.push_back(clayMaterial);
 }
 
 /***********************************************************
@@ -220,8 +265,25 @@ void SceneManager::SetupSceneLights()
 	/*** Up to four light sources can be defined. Refer to the code ***/
 	/*** in the OpenGL Sample for help                              ***/
 
-	
-
+	m_pShaderManager->setVec3Value("lightSources[0].position", 3.0f, 14.0f, 0.0f);
+	m_pShaderManager->setVec3Value("lightSources[0].ambientColor", 0.01f, 0.01f, 0.01f);
+	m_pShaderManager->setVec3Value("lightSources[0].diffuseColor", 0.4f, 0.4f, 0.4f);
+	m_pShaderManager->setVec3Value("lightSources[0].specularColor", 0.0f, 0.0f, 0.0f);
+	m_pShaderManager->setFloatValue("lightSources[0].focalStrength", 32.0f);
+	m_pShaderManager->setFloatValue("lightSources[0].specularIntensity", 0.05f);
+	m_pShaderManager->setVec3Value("lightSources[1].position", -3.0f, 14.0f, 0.0f);
+	m_pShaderManager->setVec3Value("lightSources[1].ambientColor", 0.01f, 0.01f, 0.01f);
+	m_pShaderManager->setVec3Value("lightSources[1].diffuseColor", 0.4f, 0.4f, 0.4f);
+	m_pShaderManager->setVec3Value("lightSources[1].specularColor", 0.0f, 0.0f, 0.0f);
+	m_pShaderManager->setFloatValue("lightSources[1].focalStrength", 32.0f);
+	m_pShaderManager->setFloatValue("lightSources[1].specularIntensity", 0.05f);
+	m_pShaderManager->setVec3Value("lightSources[2].position", 0.6f, 5.0f, 6.0f);
+	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.01f, 0.01f, 0.01f);
+	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 0.3f, 0.3f, 0.3f);
+	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.3f, 0.3f, 0.3f);
+	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 12.0f);
+	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.5f);
+	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
 
 /***********************************************************
