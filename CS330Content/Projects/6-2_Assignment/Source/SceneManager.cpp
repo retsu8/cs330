@@ -339,7 +339,7 @@ void SceneManager::SetupSceneLights()
 	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.3f, 0.3f, 0.3f);
 	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 12.0f);
 	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.5f);
-	//m_pShaderManager->setBoolValue("bUseLighting", true);
+	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
 
 /***********************************************************
