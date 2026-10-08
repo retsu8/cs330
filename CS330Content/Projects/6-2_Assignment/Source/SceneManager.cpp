@@ -302,7 +302,79 @@ void SceneManager::DefineObjectMaterials()
 
 	m_objectMaterials.push_back(clayMaterial);
 }
+/***********************************************************
+ *  CreateGLTexture()
+ *
+ *  This method is used for loading textures from image files,
+ *  configuring the texture mapping parameters in OpenGL,
+ *  generating the mipmaps, and loading the read texture into
+ *  the next available texture slot in memory.
+ ***********************************************************/
+bool SceneManager::CreateGLTexture(const char* filename, std::string tag)
+{
+	int width = 0;
+	int height = 0;
+	int colorChannels = 0;
+	GLuint textureID = 0;
 
+	// indicate to always flip images vertically when loaded
+	stbi_set_flip_vertically_on_load(true);
+
+	// try to parse the image data from the specified image file
+	unsigned char* image = stbi_load(
+		filename,
+		&width,
+		&height,
+		&colorChannels,
+		0);
+
+	// if the image was successfully read from the image file
+	if (image)
+	{
+		std::cout << "Successfully loaded image:" << filename << ", width:" << width << ", height:" << height << ", channels:" << colorChannels << std::endl;
+
+		glGenTextures(1, &textureID);
+		glBindTexture(GL_TEXTURE_2D, textureID);
+
+		// set the texture wrapping parameters
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		// set texture filtering parameters
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		// if the loaded image is in RGB format
+		if (colorChannels == 3)
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		// if the loaded image is in RGBA format - it supports transparency
+		else if (colorChannels == 4)
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+		else
+		{
+			std::cout << "Not implemented to handle image with " << colorChannels << " channels" << std::endl;
+			return false;
+		}
+
+		// generate the texture mipmaps for mapping textures to lower resolutions
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		// free the image data from local memory
+		stbi_image_free(image);
+		glBindTexture(GL_TEXTURE_2D, 0); // Unbind the texture
+
+		// register the loaded texture and associate it with the special tag string
+		m_textureIDs[m_loadedTextures].ID = textureID;
+		m_textureIDs[m_loadedTextures].tag = tag;
+		m_loadedTextures++;
+
+		return true;
+	}
+
+	std::cout << "Could not load image:" << filename << std::endl;
+
+	// Error loading the image
+	return false;
+}
  /***********************************************************
   *  LoadSceneTextures()
   *

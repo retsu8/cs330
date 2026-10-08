@@ -86,6 +86,8 @@ private:
 	int FindTextureSlot(
 		std::string tag);
 
+	bool CreateGLTexture(const char* filename, std::string tag);
+
 public:
 
 	/*** The following methods are for the students to ***/
