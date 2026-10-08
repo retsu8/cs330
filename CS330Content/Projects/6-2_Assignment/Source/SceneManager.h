@@ -86,7 +86,8 @@ private:
 	int FindTextureSlot(
 		std::string tag);
 
-	bool CreateGLTexture(const char* filename, std::string tag);
+	bool CreateGLTexture(
+		const char* filename, std::string tag);
 
 public:
 
@@ -99,4 +100,4 @@ public:
 	void SetupSceneLights();
 	// pre-define the object materials for lighting
 	void DefineObjectMaterials();
-};
+}
