@@ -410,9 +410,9 @@ void SceneManager::RenderScene()
 		ZrotationDegrees,
 		positionXYZ);
 
-	//SetShaderColor(1, 1, 1, 1);
-	SetShaderTexture("floor");
-	SetShaderMaterial("cement");
+	SetShaderColor(1, 1, 1, 1);
+	// SetShaderTexture("floor");
+	// SetShaderMaterial("cement");
 
 	// draw the mesh with transformation values - this plane is used for the base
 	m_basicMeshes->DrawPlaneMesh();
@@ -435,11 +435,11 @@ void SceneManager::RenderScene()
 		YrotationDegrees,
 		ZrotationDegrees,
 		positionXYZ);
-	//SetShaderColor(1, 0, 0, 1);
-	SetShaderTexture("cylinder");
-	SetShaderMaterial("gold");
+	SetShaderColor(1, 0, 0, 1);
+	// SetShaderTexture("cylinder");
+	// SetShaderMaterial("gold");
 	m_basicMeshes->DrawCylinderMesh(false, false);
-	SetShaderTexture("cylinder_top");
+	// SetShaderTexture("cylinder_top");
 	m_basicMeshes->DrawCylinderMesh(true, true, false);
 	scaleXYZ = glm::vec3(0.9f, 9.0f, 1.2f);
 
@@ -458,9 +458,9 @@ void SceneManager::RenderScene()
 	YrotationDegrees,
 	ZrotationDegrees,
 	positionXYZ);
-	//SetShaderColor(0, 0, 1, 1);
-	SetShaderTexture("plank");
-	SetShaderMaterial("wood");
+	SetShaderColor(0, 0, 1, 1);
+	// SetShaderTexture("plank");
+	// SetShaderMaterial("wood");
 	m_basicMeshes->DrawBoxMesh();
 	scaleXYZ = glm::vec3(1.3f, 1.1f, 1.3f);
 	// set the XYZ rotation for the mesh
@@ -476,9 +476,9 @@ void SceneManager::RenderScene()
 	YrotationDegrees,
 	ZrotationDegrees,
 	positionXYZ);
-	//SetShaderColor(1, 0, 1, 1);
-	SetShaderTexture("box");
-	SetShaderMaterial("tile");
+	SetShaderColor(1, 0, 1, 1);
+	// SetShaderTexture("box");
+	// SetShaderMaterial("tile");
 	m_basicMeshes->DrawBoxMesh();
 	scaleXYZ = glm::vec3(1.0f, 1.0f, 1.0f);
 	// set the XYZ rotation for the mesh
@@ -494,9 +494,9 @@ void SceneManager::RenderScene()
 	YrotationDegrees,
 	ZrotationDegrees,
 	positionXYZ);
-	//SetShaderColor(1, 1, 0, 1);
-	SetShaderTexture("ball");
-	SetShaderMaterial("glass");
+	SetShaderColor(1, 1, 0, 1);
+	// SetShaderTexture("ball");
+	// SetShaderMaterial("glass");
 	m_basicMeshes->DrawSphereMesh();
 	scaleXYZ = glm::vec3(1.2f, 4.0f, 1.2f);
 	// set the XYZ rotation for the mesh
@@ -512,8 +512,8 @@ void SceneManager::RenderScene()
 	YrotationDegrees,
 	ZrotationDegrees,
 	positionXYZ);
-	//SetShaderColor(0, 1, 0, 1);
-	SetShaderTexture("cone");
-	SetShaderMaterial("clay");
+	SetShaderColor(0, 1, 0, 1);
+	// SetShaderTexture("cone");
+	// SetShaderMaterial("clay");
 	m_basicMeshes->DrawConeMesh();
 }
