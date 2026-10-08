@@ -100,4 +100,4 @@ public:
 	void SetupSceneLights();
 	// pre-define the object materials for lighting
 	void DefineObjectMaterials();
-}
+};
