@@ -89,6 +89,8 @@ private:
 	bool CreateGLTexture(
 		const char* filename, std::string tag);
 
+	void BindGLTextures();
+
 public:
 
 	/*** The following methods are for the students to ***/
