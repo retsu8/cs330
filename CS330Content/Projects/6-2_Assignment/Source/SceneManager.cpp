@@ -351,15 +351,13 @@ void SceneManager::SetupSceneLights()
  ***********************************************************/
 void SceneManager::PrepareScene()
 {
-	// define the materials for objects in the scene
+	LoadSceneTextures();
 	DefineObjectMaterials();
-	// add and define the light sources for the scene
 	SetupSceneLights();
 
 	// only one instance of a particular mesh needs to be
-	// loaded in memory no matter how many times it is drawn
-	// in the rendered 3D scene - the following code loads
-	// the basic 3D meshes into the graphics pipeline buffers
+	// loaded in memory no mater how many times it is drawn
+	// in the rendered 3D scene
 
 	m_basicMeshes->LoadBoxMesh();
 	m_basicMeshes->LoadPlaneMesh();
@@ -463,6 +461,7 @@ void SceneManager::RenderScene()
 	SetShaderMaterial("wood");
 	m_basicMeshes->DrawBoxMesh();
 	scaleXYZ = glm::vec3(1.3f, 1.1f, 1.3f);
+
 	// set the XYZ rotation for the mesh
 	XrotationDegrees = 0.0f;
 	YrotationDegrees = 48.0f;
