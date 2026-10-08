@@ -315,7 +315,7 @@ void SceneManager::SetupSceneLights()
 	// the 3D scene with custom lighting, if no light sources have
 	// been added then the display window will be black - to use the 
 	// default OpenGL lighting then comment out the following line
-	//m_pShaderManager->setBoolValue(g_UseLightingName, true);
+	m_pShaderManager->setBoolValue(g_UseLightingName, true);
 
 	/*** STUDENTS - add the code BELOW for setting up light sources ***/
 	/*** Up to four light sources can be defined. Refer to the code ***/
