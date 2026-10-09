@@ -341,6 +341,161 @@ void SceneManager::SetupSceneLights()
 	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.5f);
 	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
+ /***********************************************************
+  *  LoadSceneTextures()
+  *
+  *  This method is used for preparing the 3D scene by loading
+  *  the shapes, textures in memory to support the 3D scene
+  *  rendering
+  ***********************************************************/
+void SceneManager::LoadSceneTextures()
+{
+	/*** STUDENTS - add the code BELOW for loading the textures that ***/
+	/*** will be used for mapping to objects in the 3D scene. Up to  ***/
+	/*** 16 textures can be loaded per scene. Refer to the code in   ***/
+	/*** the OpenGL Sample for help.                                 ***/
+
+	bool bReturn = false;
+
+	// The stone for the floor
+	bReturn = CreateGLTexture(
+		"textures/stone.png",
+		"stone");
+	
+	// The wood for the board 
+	bReturn = CreateGLTexture(
+		"textures/wood.jpg",
+		"wood");	
+
+	// Creating a marble ball
+	bReturn = CreateGLTexture(
+		"textures/marble.jpg",
+		"marble");
+
+	// created a cheese block to
+	bReturn = CreateGLTexture(
+		"textures/cheese.jpg",
+		"cheese");
+
+	// Creating a steel cone
+	bReturn = CreateGLTexture(
+		"textures/steel.jpg",
+		"steel");
+
+	// Build an abstract cylinder
+	bReturn = CreateGLTexture(
+		"textures/plugab.jpg",
+		"plugab");
+
+	// after the texture image data is loaded into memory, the
+	// loaded textures need to be bound to texture slots - there
+	// are a total of 16 available slots for scene textures
+	BindGLTextures();
+}
+
+/***********************************************************
+ *  CreateGLTexture()
+ *
+ *  This method is used for loading textures from image files,
+ *  configuring the texture mapping parameters in OpenGL,
+ *  generating the mipmaps, and loading the read texture into
+ *  the next available texture slot in memory.
+ ***********************************************************/
+bool SceneManager::CreateGLTexture(const char* filename, std::string tag)
+{
+	int width = 0;
+	int height = 0;
+	int colorChannels = 0;
+	GLuint textureID = 0;
+
+	// indicate to always flip images vertically when loaded
+	stbi_set_flip_vertically_on_load(true);
+
+	// try to parse the image data from the specified image file
+	unsigned char* image = stbi_load(
+		filename,
+		&width,
+		&height,
+		&colorChannels,
+		0);
+
+	// if the image was successfully read from the image file
+	if (image)
+	{
+		std::cout << "Successfully loaded image:" << filename << ", width:" << width << ", height:" << height << ", channels:" << colorChannels << std::endl;
+
+		glGenTextures(1, &textureID);
+		glBindTexture(GL_TEXTURE_2D, textureID);
+
+		// set the texture wrapping parameters
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		// set texture filtering parameters
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		// if the loaded image is in RGB format
+		if (colorChannels == 3)
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		// if the loaded image is in RGBA format - it supports transparency
+		else if (colorChannels == 4)
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+		else
+		{
+			std::cout << "Not implemented to handle image with " << colorChannels << " channels" << std::endl;
+			return false;
+		}
+
+		// generate the texture mipmaps for mapping textures to lower resolutions
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		// free the image data from local memory
+		stbi_image_free(image);
+		glBindTexture(GL_TEXTURE_2D, 0); // Unbind the texture
+
+		// register the loaded texture and associate it with the special tag string
+		m_textureIDs[m_loadedTextures].ID = textureID;
+		m_textureIDs[m_loadedTextures].tag = tag;
+		m_loadedTextures++;
+
+		return true;
+	}
+
+	std::cout << "Could not load image:" << filename << std::endl;
+
+	// Error loading the image
+	return false;
+}
+
+/***********************************************************
+ *  BindGLTextures()
+ *
+ *  This method is used for binding the loaded textures to
+ *  OpenGL texture memory slots.  There are up to 16 slots.
+ ***********************************************************/
+void SceneManager::BindGLTextures()
+{
+	for (int i = 0; i < m_loadedTextures; i++)
+	{
+		// bind textures on corresponding texture units
+		glActiveTexture(GL_TEXTURE0 + i);
+		glBindTexture(GL_TEXTURE_2D, m_textureIDs[i].ID);
+	}
+}
+
+/***********************************************************
+ *  DestroyGLTextures()
+ *
+ *  This method is used for freeing the memory in all the
+ *  used texture memory slots.
+ ***********************************************************/
+void SceneManager::DestroyGLTextures()
+{
+	for (int i = 0; i < m_loadedTextures; i++)
+	{
+		glGenTextures(1, &m_textureIDs[i].ID);
+	}
+}
 
 /***********************************************************
  *  PrepareScene()
