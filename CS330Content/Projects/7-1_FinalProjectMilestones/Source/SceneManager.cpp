@@ -153,6 +153,35 @@ void SceneManager::DestroyGLTextures()
 	}
 }
 
+
+
+/***********************************************************
+ *  SetupSceneLights()
+ *
+ *  This method is called to add and configure the light
+ *  sources for the 3D scene.  There are up to 4 light sources.
+ ***********************************************************/
+void SceneManager::SetupSceneLights()
+{
+	// this line of code is NEEDED for telling the shaders to render 
+	// the 3D scene with custom lighting, if no light sources have
+	// been added then the display window will be black - to use the 
+	// default OpenGL lighting then comment out the following line
+	m_pShaderManager->setBoolValue(g_UseLightingName, true);
+
+	/*** STUDENTS - add the code BELOW for setting up light sources ***/
+	/*** Up to four light sources can be defined. Refer to the code ***/
+	/*** in the OpenGL Sample for help                              ***/
+
+	// Example only: replace these coordinates with your window's position.
+	m_pShaderManager->setVec3Value("lightSources[2].position", 0.0f, 4.0f, 3.0f);
+	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.02f, 0.02f, 0.02f);
+	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 1.0f, 0.8f, 0.55f);
+	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.3f, 0.25f, 0.2f);
+	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 16.0f);
+	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.1f);
+	m_pShaderManager->setBoolValue("bUseLighting", true);
+}
 /***********************************************************
  *  FindTextureID()
  *
@@ -388,6 +417,7 @@ void SceneManager::PrepareScene()
 	// define the materials that will be used for the objects
 	// in the 3D scene
 	DefineObjectMaterials();
+	SetupSceneLights();
 
 	// only one instance of a particular mesh needs to be
 	// loaded in memory no matter how many times it is drawn

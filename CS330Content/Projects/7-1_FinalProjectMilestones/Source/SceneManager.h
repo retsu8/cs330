@@ -69,6 +69,8 @@ private:
 	// find a defined material by tag
 	bool FindMaterial(std::string tag, OBJECT_MATERIAL& material);
 
+	void SetupSceneLights();
+
 	// set the transformation values 
 	// into the transform buffer
 	void SetTransformations(
