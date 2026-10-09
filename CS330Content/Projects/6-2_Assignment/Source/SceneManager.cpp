@@ -8,7 +8,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "SceneManager.h"
-
+#ifndef STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 #include <glm/gtx/transform.hpp>
 
 // declare the global variables
