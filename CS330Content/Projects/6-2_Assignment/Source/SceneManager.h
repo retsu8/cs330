@@ -60,7 +60,6 @@ private:
 
 	// retrieve defined material by tag
 	bool FindMaterial(std::string tag, OBJECT_MATERIAL& material);
-	void LoadSceneTextures();
 
 	// set the transformation values 
 	// into the transform buffer
@@ -95,6 +94,7 @@ public:
 
 	/*** The following methods are for the students to ***/
 	/*** customize for their own 3D scene              ***/
+	void LoadSceneTextures();
 	void PrepareScene();
 	void RenderScene();
 
