@@ -174,7 +174,7 @@ void SceneManager::SetupSceneLights()
 	/*** in the OpenGL Sample for help                              ***/
 	
 	// Adjust these coordinates to your window and bag positions.
-	m_pShaderManager->setVec3Value("lightSources[2].position", 0.0f, 4.0f, 3.0f);
+	m_pShaderManager->setVec3Value("lightSources[2].position", 20.0f, 1.0f, 10.0f);
 	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.03f, 0.025f, 0.02f);
 	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 0.65f, 0.48f, 0.30f);
 	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.18f, 0.14f, 0.09f);
