@@ -86,7 +86,7 @@ private:
 	int FindTextureSlot(
 		std::string tag);
 
-	void CreateGLTexture(const char* filename, std::string tag);
+	bool CreateGLTexture(const char* filename, std::string tag);
 	void DestroyGLTextures();
 	void BindGLTextures();
 public:
