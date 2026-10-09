@@ -172,9 +172,9 @@ void SceneManager::SetupSceneLights()
 	/*** STUDENTS - add the code BELOW for setting up light sources ***/
 	/*** Up to four light sources can be defined. Refer to the code ***/
 	/*** in the OpenGL Sample for help                              ***/
-	
+
 	// Adjust these coordinates to your window and bag positions.
-	m_pShaderManager->setVec3Value("lightSources[2].position", 20.0f, 1.0f, 10.0f);
+	m_pShaderManager->setVec3Value("lightSources[2].position", 25.0f, 1.0f, 10.0f);
 	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.08f, 0.06f, 0.04f);
 	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 0.35f, 0.28f, 0.18f);
 	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.08f, 0.06f, 0.04f);
