@@ -172,15 +172,14 @@ void SceneManager::SetupSceneLights()
 	/*** STUDENTS - add the code BELOW for setting up light sources ***/
 	/*** Up to four light sources can be defined. Refer to the code ***/
 	/*** in the OpenGL Sample for help                              ***/
-
-	// Example only: replace these coordinates with your window's position.
+	
+	// Adjust these coordinates to your window and bag positions.
 	m_pShaderManager->setVec3Value("lightSources[2].position", 0.0f, 4.0f, 3.0f);
-	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.02f, 0.02f, 0.02f);
-	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 1.0f, 0.8f, 0.55f);
-	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.3f, 0.25f, 0.2f);
-	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 16.0f);
-	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.1f);
-	m_pShaderManager->setBoolValue("bUseLighting", true);
+	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.03f, 0.025f, 0.02f);
+	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 0.65f, 0.48f, 0.30f);
+	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.18f, 0.14f, 0.09f);
+	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 12.0f);
+	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.12f);
 }
 /***********************************************************
  *  FindTextureID()
