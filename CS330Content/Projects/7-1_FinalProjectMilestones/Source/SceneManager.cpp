@@ -179,15 +179,16 @@ void SceneManager::SetupSceneLights()
 	m_pShaderManager->setVec3Value("lightSources[2].position", 24.0f, 1.0f, 11.0f);
 	m_pShaderManager->setVec3Value("lightSources[3].position", 26.0f, 1.0f, 11.0f);
 
+	// Make it the same light
 	for (int i = 0; i < 4; ++i)
 	{
 	    const std::string light = "lightSources[" + std::to_string(i) + "].";
 
-	    m_pShaderManager->setVec3Value((light + "ambientColor").c_str(), 0.08f, 0.07f, 0.05f);
-	    m_pShaderManager->setVec3Value((light + "diffuseColor").c_str(),  1.00f, 0.80f, 0.20f);
-	    m_pShaderManager->setVec3Value((light + "specularColor").c_str(), 0.03f, 0.03f, 0.03f);
-	    m_pShaderManager->setFloatValue((light + "focalStrength").c_str(), 8.0f);
-	    m_pShaderManager->setFloatValue((light + "specularIntensity").c_str(), 0.05f);
+		m_pShaderManager->setVec3Value((light + "ambientColor").c_str(), 0.10f, 0.08f, 0.04f);
+		m_pShaderManager->setVec3Value((light + "diffuseColor").c_str(), 0.65f, 0.52f, 0.30f);
+		m_pShaderManager->setVec3Value((light + "specularColor").c_str(), 0.08f, 0.07f, 0.05f);
+		m_pShaderManager->setFloatValue((light + "focalStrength").c_str(), 8.0f);
+		m_pShaderManager->setFloatValue((light + "specularIntensity").c_str(), 0.03f);
 	}
 
 	m_pShaderManager->setBoolValue("bUseLighting", true);
