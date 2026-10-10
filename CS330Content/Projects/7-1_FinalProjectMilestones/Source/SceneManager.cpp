@@ -184,7 +184,7 @@ void SceneManager::SetupSceneLights()
 	    const std::string light = "lightSources[" + std::to_string(i) + "].";
 
 	    m_pShaderManager->setVec3Value((light + "ambientColor").c_str(), 0.08f, 0.07f, 0.05f);
-	    m_pShaderManager->setVec3Value((light + "diffuseColor").c_str(), 0.7f, 0.6f, 0.85f);
+	    m_pShaderManager->setVec3Value((light + "diffuseColor").c_str(), 0.7f, 0.6f, 0.50f);
 	    m_pShaderManager->setVec3Value((light + "specularColor").c_str(), 0.05f, 0.05f, 0.05f);
 	    m_pShaderManager->setFloatValue((light + "focalStrength").c_str(), 8.0f);
 	    m_pShaderManager->setFloatValue((light + "specularIntensity").c_str(), 0.05f);
