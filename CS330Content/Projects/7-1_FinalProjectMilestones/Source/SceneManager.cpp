@@ -520,9 +520,9 @@ void SceneManager::DefineObjectMaterials()
 	m_objectMaterials.push_back(backdropMaterial);
 
 	OBJECT_MATERIAL counterMaterial;
-	counterMaterial.ambientColor = glm::vec3(0.18f, 0.15f, 0.05f);
+	counterMaterial.diffuseColor = glm::vec3(0.42f, 0.36f, 0.24f);
 	counterMaterial.ambientStrength = 0.2f;
-	counterMaterial.diffuseColor = glm::vec3(0.6f, 0.5f, 0.1f);
+	counterMaterial.ambientColor = glm::vec3(0.12f, 0.10f, 0.07f);
 	counterMaterial.specularColor = glm::vec3(0.02f, 0.02f, 0.02f);
 	counterMaterial.shininess = 8.0f;
 	counterMaterial.tag = "counter";
