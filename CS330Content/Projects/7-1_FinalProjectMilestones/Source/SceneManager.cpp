@@ -187,6 +187,7 @@ void SceneManager::SetupSceneLights()
 	m_pShaderManager->setVec3Value("lightSources[3].specularColor", 0.4f, 0.35f, 0.25f);
 	m_pShaderManager->setFloatValue("lightSources[3].focalStrength", 12.0f);
 	m_pShaderManager->setFloatValue("lightSources[3].specularIntensity", 0.2f);
+	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
 /***********************************************************
  *  FindTextureID()
