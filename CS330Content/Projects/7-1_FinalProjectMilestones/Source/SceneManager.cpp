@@ -517,7 +517,17 @@ void SceneManager::DefineObjectMaterials()
 	backdropMaterial.shininess = 0.0;
 	backdropMaterial.tag = "backdrop";
 
-	m_objectMaterials.push_back(backdropMaterial);
+	m_objectMaterials.push_back(counterMaterial);
+
+	OBJECT_MATERIAL counterMaterial;
+	counterMaterial.ambientColor = glm::vec3(0.18f, 0.15f, 0.05f);
+	counterMaterial.ambientStrength = 0.2f;
+	counterMaterial.diffuseColor = glm::vec3(0.6f, 0.5f, 0.1f);
+	counterMaterial.specularColor = glm::vec3(0.02f, 0.02f, 0.02f);
+	counterMaterial.shininess = 8.0f;
+	counterMaterial.tag = "counter";
+
+	m_objectMaterials.push_back(counterMaterial);
 
 	OBJECT_MATERIAL grapeMaterial;
 	grapeMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
@@ -648,7 +658,7 @@ void SceneManager::RenderScene()
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 9.0f, -10.0f, 
 		1.0f, 1.0f,
-		"window", "backdrop");
+		"window", "counter");
 	m_basicMeshes->DrawPlaneMesh();
 
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
