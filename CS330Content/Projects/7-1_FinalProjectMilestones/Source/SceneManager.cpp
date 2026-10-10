@@ -173,20 +173,18 @@ void SceneManager::SetupSceneLights()
 	/*** Up to four light sources can be defined. Refer to the code ***/
 	/*** in the OpenGL Sample for help                              ***/
 
-	// Adjust these coordinates to your window and bag positions.
-	m_pShaderManager->setVec3Value("lightSources[2].position", 25.0f, 1.0f, 10.0f);
-	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.08f, 0.06f, 0.04f);
-	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 0.85f, 0.65f, 0.50);
-	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.08f, 0.06f, 0.04f);
-	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 8.0f);
-	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.05f);
+	// Broad, subtle fill light
+	m_pShaderManager->setVec3Value("lightSources[0].position", 0.0f, 10.0f, 0.0f);
+	m_pShaderManager->setVec3Value("lightSources[0].ambientColor", 0.20f, 0.20f, 0.20f);
+	m_pShaderManager->setVec3Value("lightSources[0].diffuseColor", 0.05f, 0.05f, 0.05f);
+	m_pShaderManager->setVec3Value("lightSources[0].specularColor", 0.0f, 0.0f, 0.0f);
 
-	m_pShaderManager->setVec3Value("lightSources[2].position", 15.0f, 1.0f, 5.0f);
-	m_pShaderManager->setVec3Value("lightSources[3].ambientColor", 0.05f, 0.05f, 0.05f);
-	m_pShaderManager->setVec3Value("lightSources[3].diffuseColor", 1.0f, 0.85f, 0.65f);
-	m_pShaderManager->setVec3Value("lightSources[3].specularColor", 0.4f, 0.35f, 0.25f);
-	m_pShaderManager->setFloatValue("lightSources[3].focalStrength", 12.0f);
-	m_pShaderManager->setFloatValue("lightSources[3].specularIntensity", 0.2f);
+	// Brighter, warm light outside the window
+	m_pShaderManager->setVec3Value("lightSources[1].position", 25.0f, 1.0f, 10.0f);
+	m_pShaderManager->setVec3Value("lightSources[1].ambientColor", 0.02f, 0.02f, 0.02f);
+	m_pShaderManager->setVec3Value("lightSources[1].diffuseColor", 1.0f, 0.85f, 0.65f);
+	m_pShaderManager->setVec3Value("lightSources[1].specularColor", 0.3f, 0.3f, 0.3f);
+	
 	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
 /***********************************************************
