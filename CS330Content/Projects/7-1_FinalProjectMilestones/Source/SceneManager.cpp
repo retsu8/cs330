@@ -649,7 +649,7 @@ void SceneManager::RenderScene()
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 0.0f, 0.0f, 
 		1.0f, 1.0f,
-		"counter", "backdrop");
+		"counter", "counter");
 	m_basicMeshes->DrawPlaneMesh();
 
 	// Create the back plane
@@ -658,7 +658,7 @@ void SceneManager::RenderScene()
 		20.0f, 1.0f, 10.0f, 
 		0.0f, 9.0f, -10.0f, 
 		1.0f, 1.0f,
-		"window", "counter");
+		"window", "backdrop");
 	m_basicMeshes->DrawPlaneMesh();
 
 	//*** Creating the base for the coffee maker out of a cylinder   ***/
