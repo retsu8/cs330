@@ -183,7 +183,7 @@ void SceneManager::SetupSceneLights()
 	m_pShaderManager->setVec3Value("lightSources[1].position", 25.0f, 1.0f, 10.0f);
 	m_pShaderManager->setVec3Value("lightSources[1].ambientColor", 0.02f, 0.02f, 0.02f);
 	m_pShaderManager->setVec3Value("lightSources[1].diffuseColor", 1.0f, 0.85f, 0.65f);
-	m_pShaderManager->setVec3Value("lightSources[1].specularColor", 0.3f, 0.3f, 0.3f);
+	m_pShaderManager->setVec3Value("lightSources[1].specularColor", 0.7f, 0.7f, 0.7f);
 
 	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
