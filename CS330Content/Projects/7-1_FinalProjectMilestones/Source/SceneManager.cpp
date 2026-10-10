@@ -517,7 +517,7 @@ void SceneManager::DefineObjectMaterials()
 	backdropMaterial.shininess = 0.0;
 	backdropMaterial.tag = "backdrop";
 
-	m_objectMaterials.push_back(counterMaterial);
+	m_objectMaterials.push_back(backdropMaterial);
 
 	OBJECT_MATERIAL counterMaterial;
 	counterMaterial.ambientColor = glm::vec3(0.18f, 0.15f, 0.05f);
