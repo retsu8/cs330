@@ -183,9 +183,17 @@ void SceneManager::SetupSceneLights()
 
 	// Brighter, warm light outside the window
 	m_pShaderManager->setVec3Value("lightSources[1].position", 25.0f, 1.0f, 10.0f);
-	m_pShaderManager->setVec3Value("lightSources[1].ambientColor", 0.02f, 0.02f, 0.02f);
-	m_pShaderManager->setVec3Value("lightSources[1].diffuseColor", 1.0f, 0.85f, 0.65f);
-	m_pShaderManager->setVec3Value("lightSources[1].specularColor", 0.7f, 0.7f, 0.7f);
+	m_pShaderManager->setVec3Value("lightSources[1].ambientColor", 0.01f, 0.01f, 0.01f);
+	m_pShaderManager->setVec3Value("lightSources[1].diffuseColor", 0.4f, 0.4f, 0.4f);
+	m_pShaderManager->setVec3Value("lightSources[1].specularColor", 0.0f, 0.0f, 0.0f);
+	m_pShaderManager->setFloatValue("lightSources[1].focalStrength", 32.0f);
+	m_pShaderManager->setFloatValue("lightSources[1].specularIntensity", 0.05f);
+	m_pShaderManager->setVec3Value("lightSources[2].position", 0.6f, 5.0f, 6.0f);
+	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.01f, 0.01f, 0.01f);
+	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 0.3f, 0.3f, 0.3f);
+	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.3f, 0.3f, 0.3f);
+	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 12.0f);
+	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.5f);
 
 	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
