@@ -174,26 +174,21 @@ void SceneManager::SetupSceneLights()
 	/*** in the OpenGL Sample for help                              ***/
 
 	// Broad, subtle fill light
-	m_pShaderManager->setVec3Value("lightSources[0].position", 3.0f, 14.0f, 0.0f);
-	m_pShaderManager->setVec3Value("lightSources[0].ambientColor", 0.01f, 0.01f, 0.01f);
-	m_pShaderManager->setVec3Value("lightSources[0].diffuseColor", 0.4f, 0.4f, 0.4f);
-	m_pShaderManager->setVec3Value("lightSources[0].specularColor", 0.0f, 0.0f, 0.0f);
-	m_pShaderManager->setFloatValue("lightSources[0].focalStrength", 32.0f);
-	m_pShaderManager->setFloatValue("lightSources[0].specularIntensity", 0.05f);
+	m_pShaderManager->setVec3Value("lightSources[0].position", 24.0f, 1.0f, 9.0f);
+	m_pShaderManager->setVec3Value("lightSources[1].position", 26.0f, 1.0f, 9.0f);
+	m_pShaderManager->setVec3Value("lightSources[2].position", 24.0f, 1.0f, 11.0f);
+	m_pShaderManager->setVec3Value("lightSources[3].position", 26.0f, 1.0f, 11.0f);
 
-	// Brighter, warm light outside the window
-	m_pShaderManager->setVec3Value("lightSources[1].position", 25.0f, 1.0f, 10.0f);
-	m_pShaderManager->setVec3Value("lightSources[1].ambientColor", 0.01f, 0.01f, 0.01f);
-	m_pShaderManager->setVec3Value("lightSources[1].diffuseColor", 0.4f, 0.4f, 0.4f);
-	m_pShaderManager->setVec3Value("lightSources[1].specularColor", 0.0f, 0.0f, 0.0f);
-	m_pShaderManager->setFloatValue("lightSources[1].focalStrength", 32.0f);
-	m_pShaderManager->setFloatValue("lightSources[1].specularIntensity", 0.05f);
-	m_pShaderManager->setVec3Value("lightSources[2].position", 0.6f, 5.0f, 6.0f);
-	m_pShaderManager->setVec3Value("lightSources[2].ambientColor", 0.01f, 0.01f, 0.01f);
-	m_pShaderManager->setVec3Value("lightSources[2].diffuseColor", 0.3f, 0.3f, 0.3f);
-	m_pShaderManager->setVec3Value("lightSources[2].specularColor", 0.3f, 0.3f, 0.3f);
-	m_pShaderManager->setFloatValue("lightSources[2].focalStrength", 12.0f);
-	m_pShaderManager->setFloatValue("lightSources[2].specularIntensity", 0.5f);
+	for (int i = 0; i < 4; ++i)
+	{
+	    const std::string light = "lightSources[" + std::to_string(i) + "].";
+
+	    m_pShaderManager->setVec3Value((light + "ambientColor").c_str(), 0.08f, 0.07f, 0.05f);
+	    m_pShaderManager->setVec3Value((light + "diffuseColor").c_str(), 0.7f, 0.6f, 0.85f);
+	    m_pShaderManager->setVec3Value((light + "specularColor").c_str(), 0.05f, 0.05f, 0.05f);
+	    m_pShaderManager->setFloatValue((light + "focalStrength").c_str(), 8.0f);
+	    m_pShaderManager->setFloatValue((light + "specularIntensity").c_str(), 0.05f);
+	}
 
 	m_pShaderManager->setBoolValue("bUseLighting", true);
 }
