@@ -449,15 +449,15 @@ void SceneManager::PrepareScene()
  ***********************************************************/
 void SceneManager::DefineObjectMaterials()
 {
-	OBJECT_MATERIAL goldMaterial;
-	goldMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
-	goldMaterial.ambientStrength = 0.3f;
-	goldMaterial.diffuseColor = glm::vec3(0.2f, 0.2f, 0.2f);
-	goldMaterial.specularColor = glm::vec3(0.5f, 0.5f, 0.5f);
-	goldMaterial.shininess = 22.0;
-	goldMaterial.tag = "metal";
+	OBJECT_MATERIAL steelMaterial;
+	steelMaterial.ambientColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	steelMaterial.ambientStrength = 0.3f;
+	steelMaterial.diffuseColor = glm::vec3(0.2f, 0.2f, 0.2f);
+	steelMaterial.specularColor = glm::vec3(0.10f, 0.10f, 0.10f);
+	steelMaterial.shininess = 22.0;
+	steelMaterial.tag = "metal";
 
-	m_objectMaterials.push_back(goldMaterial);
+	m_objectMaterials.push_back(steelMaterial);
 
 	OBJECT_MATERIAL woodMaterial;
 	woodMaterial.ambientColor = glm::vec3(0.1f, 0.1f, 0.1f);
