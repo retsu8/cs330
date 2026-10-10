@@ -174,9 +174,9 @@ void SceneManager::SetupSceneLights()
 	/*** in the OpenGL Sample for help                              ***/
 
 	// Broad, subtle fill light
-	m_pShaderManager->setVec3Value("lightSources[0].position", 30.0f, 30.0f, 30.0f);
-	m_pShaderManager->setVec3Value("lightSources[0].ambientColor", 0.25f, 0.22f, 0.18f);
-	m_pShaderManager->setVec3Value("lightSources[0].diffuseColor", 1.0f, 0.90f, 0.75f);
+	m_pShaderManager->setVec3Value("lightSources[0].position", 3.0f, 14.0f, 0.0f);
+	m_pShaderManager->setVec3Value("lightSources[0].ambientColor", 0.01f, 0.01f, 0.01f);
+	m_pShaderManager->setVec3Value("lightSources[0].diffuseColor", 0.4f, 0.4f, 0.4f);
 	m_pShaderManager->setVec3Value("lightSources[0].specularColor", 0.0f, 0.0f, 0.0f);
 	m_pShaderManager->setFloatValue("lightSources[0].focalStrength", 32.0f);
 	m_pShaderManager->setFloatValue("lightSources[0].specularIntensity", 0.05f);
